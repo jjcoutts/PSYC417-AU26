@@ -1,0 +1,63 @@
+---
+title: "Lab 1: BUGS_BUGS_BUGS"
+author: "HELP!"
+format: docx
+editor: visual
+---
+
+## War on bugs
+
+From: confused_professor
+
+To: programming_expert
+
+Please help me with the below code. I need to submit this paper ASAP but
+I'm just starting to learn R and don't know exactly what to do. I
+appreciate it.
+
+Best,\
+CP
+
+Here, I'm trying to create different logical types...
+
+```{r}
+logi = true
+priNt(logi)
+logi = logI + 1 # trying to add one to the logical value...
+```
+
+Now, I'm trying to work with that logical value some more.
+
+```{r}
+logi = logi*45LL
+CLASS(LOGI) # what data type is it?
+
+# convert the object to character data 
+char_logi = is.string(logi)
+```
+
+```{r}
+# I wanted 5 1s in an object
+Nums1 == rep(1, 5).
+
+# I want to mulitply those numbers by two
+Nums2<-Nums1 * "2"
+```
+
+I have data I want to plot below. What is wrong?
+
+```{r}
+height = runif(100, 60, 100) weight = runif(100, 150, 200) 
+
+# create the plot
+plt <-- plot(Height, Weight); 
+
+print the plot below, this is a comment
+plt
+
+# make sure this informative error message shows
+print('The plot above is a scatterplot")
+```
+
+Do not delete any of the lines above, just fix them so the document
+runs. Knit and submit on ELMS!
