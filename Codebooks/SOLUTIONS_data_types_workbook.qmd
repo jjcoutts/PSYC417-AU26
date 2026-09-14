@@ -1,0 +1,292 @@
+---
+title: "Lecture 1: Data Types in R Code"
+author: "PSYC417"
+format: docx
+editor: visual
+---
+
+# Data Types Workbook
+
+## What is R?
+
+- R is a free, open-source statistical programming language. You can
+  program in R in environments in RStudio (like you're doing now).
+
+- Knowing R well will benefit you if you're searching for a career in
+  research or any position in graduate school.
+
+## Some basics
+
+- You assign values to objects using = or \<- . The names you assign
+  should be informative, unique, brief, not use spaces, and start with a
+  character.
+
+- You use print(object_name) or simply type the object's name to
+  retrieve its contents.
+
+- You can put multiple commands in the same line by using semi-colons.
+
+- You can leave comments for readers using the \# symbol. Nothing after
+  that symbol will be interpreted by R. You will be expected to write
+  neat, well-commented code this semester.
+
+## Practice 1 
+
+a.) Create 2 objects with a number inside of them, one using each
+assignment operator.
+
+```{r}
+six = 6
+seven <- 7
+```
+
+b.) Print each object and leave a comment above each line stating what
+you are doing.
+
+```{r}
+# print the object six
+print(six)
+# print the object seven
+print(seven)
+```
+
+c.) Add the two OBJECTS together by their name. Assign this value to a
+third object. Leave another comment above the line stating what you are
+doing.
+
+```{r}
+# adding the two objects above together
+sixseven = six + seven; print(sixseven)
+```
+
+## Data types
+
+There are various data types in R. Knowing them (and their limits) is
+critical to avoiding unnecessary errors.
+
+### **Numeric**
+
+**Numeric** dataconsist of whole numbers and integers. 5.23, 6.0, 7, and
+-0.25 are all examples of numeric data.
+
+### **Integer**
+
+**Integer** data consist only of whole numbers denoted by L after.
+Integer data are more "efficient" than numeric, as they do not store
+trailing zeroes at the end of a number. 1L, -10L, and 100L are all
+examples of integer data.
+
+### **Character** (aka string)
+
+**Character** data consist of text surrounded by quotes. The quotes can
+be single or double, so long as they are the same for a given character
+data. "A", "dog went to the store", and '8' are all examples of chracter
+data.
+
+### **Logical** (aka Boolean)
+
+**Logical** data consist of TRUE and FALSE values (styled exactly as
+seen). Whether literally TRUE or FALSE, or a statement with a logical
+operator, such as 3 \> 2 (which evaluates to TRUE), logical data will
+have an important role once we get to conditional statements. Examples
+of logical operators are below:
+
+| Logical Operator | Meaning                                |
+|------------------|----------------------------------------|
+| \>               | Greater than                           |
+| \>=              | Greater than or equal to               |
+| \<               | Less than                              |
+| \<=              | Less than or equal to                  |
+| ==               | Is equal to? (Must be TWO =)           |
+| !=               | Not equal to                           |
+| &                | AND (to tie together multiple clauses) |
+| \|               | OR (to tie together multiple clauses)  |
+
+### **Factor**
+
+**Factor** data consist of nominal and ordinal data types. Sometimes
+considered a "data structure" (we'll learn about those soon), we
+interact with them in a data type capacity (especially for analyses with
+categorical variables and data visualization). An example of factor data
+is below.
+
+```{r}
+school_years = c("junior", "first-year", "junior", "sophomore", "senior", "junior", "junior", "sophomore", "first-year", "senior+", "senior")
+
+# Be careful…R will alphabetize/order factors if you do not specify.
+
+school_years_ordered = factor(school_years, levels = c("first-year", "sophomore", "junior", "senior", "senior+"), ordered=TRUE) # Ordered = TRUE is for ordinal data
+# view the data 
+school_years_ordered # you will see less than signs between levels
+
+school_years_unordered = factor(school_years, levels = c("first-year", "sophomore", "junior", "senior", "senior+"), ordered=FALSE) 
+# view the data
+school_years_unordered # you will only see levels listed
+```
+
+### Checking Data Types
+
+You can check the data type if you're unsure using the is.type() syntax:
+
+- is.numeric(), is.integer(), is.character(), is.factor(), and
+  is.logical() will return a logical TRUE/FALSE depending on the data
+  you enter.
+- class() will report the data type back to you.
+
+```{r}
+# numeric data
+num1 <- 1; is.numeric(num1);
+num2 <- 5.62234; class(num2)
+# integer data
+int1 <- 4L; class(int1)
+int2 <- 0L; is.integer(int2)
+# character data 
+char1 <- "A"; class(char1)
+char2 <- "The quick brown fox jumped over the lazy dog."; is.character(char2)
+# logical data
+logi1 <- TRUE; class(logi1)
+logi2 <- 3==3; is.logical(logi2)
+# factor data
+fact <- factor(c("Full", "Associate", "Assistant", "Assistant","Associate","Full","Associate","Full"),levels=c("Assistant","Associate","Full"));class(fact)
+```
+
+### Changing Data Types
+
+You can also convert data to other types so long as it is appropriate
+using the as.type() syntax format:
+
+- as.numeric(), as.integer(), as.character(), factor(), and as.logical()
+  will make sensible conversions to the specified datatype.
+
+```{r}
+# chracter data 
+as.character(TRUE)
+as.character(8)
+as.character(0L)
+# numeric data 
+as.numeric("1")
+as.numeric(0L)
+as.numeric(FALSE)
+# integer data
+as.integer(4.23)
+as.integer("123")
+as.integer(TRUE)
+# factor data
+places = c("First", "Second", "Last")
+factor(places, levels = c("First", "Second", "Last"), ordered = TRUE)
+```
+
+### Practice 2
+
+Create a different chunk for each of these practice exercises (for
+practice).
+
+1.  Create an object called "four" with the value 3 and an object
+    "three" with the value 4 and check: 1.) whether three \> four, (2.)
+    whether 3 \> 4, and (3.) whether three == 4.
+
+```{r}
+# number 1 
+four = 3; three = 4
+three > four
+3 > 4
+three == 4
+```
+
+1.  Check whether your two favorite Ryans in Hollywood are equal (e.g.,
+    "Ryan Reynolds" == "Ryan Gosling"). How is this comparison
+    happening? What about their first names?
+
+```{r}
+# number 2 
+"Ryan Reynolds" == "Ryan Gosling"
+"Ryan Reynolds" > "Ryan Gosling"
+# comparisons of text will look at alphabetical order, with later positions being "greater than" earlier positions
+"Ryan" ==  "Ryan" # equal as expected
+```
+
+1.  Create a variable called X and assign it a value of 10. Then, on the
+    same line, check if the square root of X is greater than the log of
+    X.
+
+```{r}
+# number 3
+x = 10; sqrt(x) > log(x)
+```
+
+1.  Create a variable called Y and assign it to a value of 709. ON the
+    next line, create a variable called Z and assign it a value of 308.
+    Check whether the exponential of Y (using the exp() command) is
+    greater than or equal to 10 to the power of Z.
+
+```{r}
+# number 4
+y = 709; z = 308
+exp(y) >= 10 ^ z
+```
+
+1.  Copy the code from the problem above and increase Y and Z by 1. What
+    changed (besides the numbers being 710 and 309)?
+
+```{r}
+# number 5 
+exp(y + 1) >= 10 ^ (z+1)
+```
+
+1.  Print the modified values of Y and Z from question 5. What are they
+    equal to?
+
+```{r}
+# number 6 
+print(exp(710)); print(10^(309))
+```
+
+1.  Create a formula that calculates your grade in a class based on
+    three categories: Exams as 50% of your grade, Homework as 25%, and
+    Attendance as 25%. Create three variables called exam_avg, hw_avg,
+    and attend, and assign them values of your choice. Make sure the
+    grades make sense!
+
+```{r}
+# number 7 
+exam_avg = 75; hw_avg = 82; attend = 100
+grade = .5*exam_avg + .25*hw_avg + .25*attend
+print(grade)
+```
+
+1.  Fix the following data types using the as.type() notation when
+    possible, not by fixing the code manually.
+
+```{r}
+# I want the below to be logical
+boohoo = "false"; boohoo = as.logical(boohoo)
+# check that it's logical
+is.logical(boohoo)
+
+# I want the below to be numeric
+intish = 4.6L
+# check that it's numeric
+is.numeric(intish) # it already is, however we could also convert it (though you shouldn't)
+intish = as.numeric(intish); is.numeric(intish)
+
+# I wawnt the below to be an ordered factor with the levels first, second, third, last. For some reason it sometimes ends up in alphabetical order!
+facty = c("First","Second","Third","Last")
+# check that it's a factor
+facty = factor(facty, levels = c("First", "Second","Third","Last"))
+print(facty)
+is.factor(facty)
+
+# I want the below to be an integer
+numy = "8"
+# check that it's an integer
+numy = as.integer(numy); class(numy)
+
+# I want the below to be character
+twelve = 12
+#check that it's character
+twelve = as.character(twelve); class(twelve)
+```
+
+## The end
+
+That's it! Great job! :)
