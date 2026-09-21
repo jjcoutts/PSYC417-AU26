@@ -1,0 +1,327 @@
+---
+title: "Lecture 3: Conditionals Workbook"
+author: "PSYC417"
+format: docx
+editor: visual
+---
+
+# Conditionals Workbook
+
+## Quick review from last time
+
+Data structure of data frame subsets:
+
+-   **Vector** if indexing a single column using \$ or \[ , \].
+
+-   **Data frame** if index using \[\] with no comma.
+
+-   **Data frame** if indexing multiple columns.
+
+```{r}
+# Let's create a data frame with IDs, major, and year as the variables
+df <- data.frame(id=1:4, major=c("psych","psych","soc","cs"),
+                 year=c("junior","senior","senior","freshman"))
+df
+```
+
+Indexing in action:
+
+```{r}
+# if using the $ method for selecting the column
+is.vector(df$major)
+
+# if indexing the column using brackets
+is.vector(df[,"major"])
+
+# single brackets, by name
+is.vector(df["major"]) # false
+is.data.frame(df["major"]) # true
+
+# single brackets, by position
+is.vector(df[2]) # false 
+is.data.frame(df[2]) # true
+
+# multiple columns
+is.vector(df[, 2:3]) # false
+is.data.frame(df[, 2:3]) # true
+```
+
+Quick illustration of the **summary()** function:
+
+-   Produces five-number summary of all numeric data (and descriptives/data type of non-numeric types).
+
+-   Counts NAs for each variable.
+
+```{r}
+summary(df)
+```
+
+## What's an algorithm?
+
+-   An exact specification of the steps you need in order to solve a problem.
+-   In designing an algorithm, we need to take into account two dimensions:
+    -   **Computational complexity**: How many 'computations' will it take before I get an answer?
+    -   **Memory complexity**: How much storage do I need (for intermediate values)?
+-   Multiple algorithms can often be used to solve the same problem (as long as it can be solved).
+
+## Building blocks of algorithms
+
+-   **Conditional statements**: Run a block of code only if a particular condition or set of conditions are met. These must be written as logical statements.
+    -   If TRUE, run the block of code.
+    -   If FALSE, ignore the block of code.
+-   **Loops**: Run a block of code multiple times.
+    -   Iterate a set number of times: for loop
+    -   Iterate until a condition is met: while loop
+-   **Functions**:
+    -   Associate a name and set of arguments with a complex series of commands.
+-   We will focus on **conditional statements** this time.
+
+## Review of logical variables and comparison operators
+
+Logical variables only take two values: TRUE or FALSE.
+
+-   Operators to use with conditionals: \>, \<, \>=, \<=, ==, !=, & (or &&), \| (or \|\|).
+
+-   Let's create expressions that evaluate to TRUE or FALSE with each of the logical operators.
+
+```{r}
+# less than (or equal to)
+5 <= 6
+5 < 4
+
+# greater than (or equal to)
+6 > 5
+5 >= 4
+
+# equals/doesn't equal
+"c" == "c"
+TRUE != FALSE
+
+# multiple - false
+TRUE != FALSE & 1 == 2
+
+# multiple - true
+1 == 2 | 2 == 3 | 3 == 3
+```
+
+## Applying conditional operators to vectors
+
+**any()**: tests whether any element of a vector is true.
+
+-   Try getting a TRUE and FALSE below (in two different examples). Don't repeat the one I used.
+
+```{r}
+any(c("a","b","c") == "d")
+# lets get a false 
+cats = c("cats", "cats", "cats")
+any(cats == "dogs")
+# lets get a true
+vec = 1:10
+any(c(1:10) == 7)
+```
+
+**all()**: tests whether all elements of a vector are true.
+
+-   Let's try getting a TRUE and FALSE below (in two different examples). Don't repeat the one I used.
+
+```{r}
+all(c(1,2,3,4,5) >=1)
+# let's generate a true
+cs = c("c","c","c")
+all(cs == "c")
+# let's generate a false
+ts = c(TRUE,TRUE,FALSE)
+all(ts == TRUE)
+```
+
+**%in%** is very similar to any(): tests whether an element is in a vector. We won't use this one often, but try getting the same answer as the ANY code chunk above.
+
+```{r}
+
+"dogs" %in% cats # false
+"cats" %in% cats # true
+
+7 %in% vec # true
+11 %in% vec # false
+```
+
+Some practice questions
+
+```{r}
+test <- c(1,2,3,4)
+
+# Check if there is any 5 in the vector above
+
+# Check if all the elements of the vector test are positive
+
+# Check if all the elements are smaller than or equal to 2 OR greater than or equal to 3
+```
+
+## Conditional syntax (if, else if, else)
+
+#### Simple if...
+
+if (condition is TRUE) { run the conditional code }
+
+```{r}
+Y = 24
+if(is.numeric(Y)== TRUE){  
+   print("Y is a NUMBER!")
+}
+```
+
+if statements with object assignment:
+
+```{r}
+Y = 24
+if(Y > 0){  
+   x = sqrt(Y);print(x)
+}
+```
+
+Other examples (one of the below is an error, fix it)
+
+```{r}
+T = 10
+if(is.numeric(t)== TRUE){  
+   print("Y is a NUMBER!")
+}
+
+
+value = "cats"
+if(value/2 == 0){  
+   x = sqrt(animal);print(x)
+}
+```
+
+#### Conceptual if... else...
+
+if (weather == sunny) {
+
+go for a hike } else {
+
+go to the museum
+
+}
+
+Let's look at one in R:
+
+```{r}
+Height = 59
+if(Height < 66){  
+   print("SHORT!")
+} else if((Height >= 66) & (Height < 72)){ 
+   print("MEDIUM!")
+} else if(Height >= 72){  
+   print("TALL!")
+}
+```
+
+## Nested conditionals
+
+Traffic light pseudocode:
+
+if(light is green){
+
+drive
+
+} else if (light is yellow){
+
+drive
+
+} else if (intersection is still far) {
+
+stop
+
+} else if (light is red) {
+
+stop
+
+}
+
+Write the converted traffic light example in the box below:
+
+```{r}
+
+```
+
+## ifelse() statements
+
+For simple conditionals or to perform vectorized operations, we can use the **ifelse()** function. ifelse() can evaluate entire vectors in one sweep.
+
+Single values
+
+```{r}
+# categorizing a single value
+x <- 1
+ifelse(x > 0, "x is positive", "x is not positive")
+```
+
+Vectors
+
+```{r}
+# categorizing a vector
+age <- c(17,16,20,18,22,18,15)
+ifelse(age >= 18, "adult", "minor")
+```
+
+## Practice Exercises
+
+1)  Create the following variables:
+
+```{r}
+g <- 9.8
+x <- 12
+y <- 4
+bestCodingLanguages <- c("Python", "Matlab", "C++", "javaScript")
+```
+
+2)  Write an if statement to print "g is greater than 10" if g is greater than 10.
+
+```{r}
+
+```
+
+3)  Write an if statement to print "x is divisible by y" if x is divisible by y. (Hint: The remainder of the division should be 0 - remember the %% operator.)
+
+```{r}
+
+```
+
+4)  Write an if statement so that if "R" is in bestCodingLanguages, it prints "That's right!", and if not, it prints "It should be!".
+
+```{r}
+
+```
+
+5)  Re-write the code from 4) using the ifelse() function
+
+```{r}
+
+```
+
+6)  Let's implement the traffic light example. Create the following dataframe showing the light color and distance (in feet) between the car and the light.
+
+```{r}
+df <- data.frame(color = c("green","green","yellow","yellow","red","red"),
+                 distance = c(50,200,50,200,50,200))
+df
+```
+
+Let's assume that the "distance of no return" (i.e. where the car has enough time to stop) is 125 feet. Add a column called "action" that says whether the car should "drive" or "stop" depending on the light color and distance.
+
+a)  Do this using data frame indexing
+
+```{r}
+
+```
+
+b)  Do this using ifelse()
+
+```{r}
+
+```
+
+## The end
+
+That's it! Great job! :)

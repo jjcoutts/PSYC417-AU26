@@ -1,0 +1,283 @@
+---
+title: "Lecture 2: Data Structures"
+author: "PSYC417"
+format: docx
+editor: visual
+---
+
+# Data Structures Workbook
+
+## Data structures
+
+R classifies objects different ways, which impacts the operations you
+can perform and what you can store inside.
+
+### **Vectors**
+
+- Unidimensional and can only contain a single data type. Created with
+  the c() command.
+
+- You can check how long a vector is using length()
+
+```{r}
+vec <- c("a","b","c","d");vec
+length(vec)
+```
+
+### **Matrices**
+
+- Two dimensional and can only contain a single data type. Created with
+  the matrix() command.
+
+- You can check how many elements are in a matrix using length(). You
+  can check how many rows there are using nrow() and you can check how
+  many columns there are using ncol().
+
+- byrow = FALSE is the default in matrix(), but you can change that to
+  true to fill in values by row instead of by column.
+
+```{r}
+mat <- matrix(c(1:9), nrow=3, ncol=3);mat
+mat2 <- matrix(c(1:9), nrow = 3, ncol = 3, byrow = TRUE);mat2
+
+length(mat)
+nrow(mat)
+ncol(mat)
+```
+
+### **Data frames**
+
+- Two dimensional and can contain multiple data types. R's primary means
+  of data storage and akin to a spreadsheet. Created with the
+  data.frame() command.
+
+- You can check the number of rows using nrow() or the number of columns
+  using ncol() OR length()
+
+```{r}
+df <- data.frame(x = rep(TRUE, 4), y = c(1:4))
+length(df)
+nrow(df)
+ncol(df)
+```
+
+### **Lists**
+
+- Multidimensional and capable of storing other objects. Created with
+  the list() command.
+
+- You can check how many objects are in a list using length()
+
+```{r}
+lis <- list(vec = vec, mat = mat, df = df)
+length(lis)
+```
+
+### Checking/Converting Structures
+
+You can check the data structure if you're unsure about it using class()
+or is.datastructure() syntax.
+
+```{r}
+is.vector(vec); class(vec)
+is.matrix(mat); class(mat)
+is.data.frame(df); class(df)
+is.list(lis); class(lis)
+```
+
+You can convert some objects to others using as.vector(), as.matrix(),
+etc.
+
+```{r}
+new_vec <- as.vector(mat);print(new_vec)
+```
+
+### Practice 1
+
+Create a different chunk for each of these practice exercises (for
+practice).
+
+1.  Build each type of data structure. Try to vary the data types if you
+    can. (Don't make every object consist of numbers and only numbers.)
+
+2.  Convert each data structure to a different data structure. Print or
+    view the new structures. Which ones DON'T work well?
+
+3.  Double that numbers that exist in relevant vectors, matrices, or
+    data frame columns. (Create ones with numbers if you must.)
+
+## Indexing and Subsetting
+
+You can extract values from objects using a variety of operators in R.
+The base syntax is to type the object name followed by \[\]. Sometimes
+you can use a \$ and other times you can use \[\[\]\].
+
+- R uses 1-based indexing so you just put the position of the element
+  you want.
+
+```{r}
+# These are the objects from the slides
+v <- c("a","b","c","d","e")
+m <- matrix(c(1:9), nrow=3,ncol=3)
+df <- data.frame(movie=c("Avengers 1","Avengers 2", "Avengers 3 Part 1", "Avengers 3 Part 2"), ratings = c(8,7,10,7),bo_ranking = c(1:4))
+tot <- list(vec = v, mat = m, datframe = df)
+```
+
+**Vectors**: Put a single number in the brackets to extract the specific
+element. You can only use brackets.
+
+```{r}
+v[3] # gives us the second value in vec
+v[1:3] # gives us the first three values in vec
+v[6] = 100 # creates a sixth element in v
+```
+
+**Matrices**: Two-dimensional. You need to account for BOTH dimensions
+in the bracket index. EXAMPLE\[ROW, COLUMN\]. (Matrices can have named
+dimensions, but we rarely use them.) Leaving a dimension blank will give
+you all the elements in that dimension.
+
+```{r}
+m[2,3] # gives us the value in the second row and the third column
+m[2,] # gives us the entire second row
+m[,3] # gives us the entire third column
+```
+
+**Data Frame**: Two-dimesional. You need to account for BOTH dimensions
+in the bracket index. This will give you a vector.
+
+```{r}
+df[,1] # entire first column
+df[1,1] # first value in the first column
+```
+
+You can also use the dollar sign \$ to refer to a dimension by name or
+use the name in brackets. This will give you a vector.
+
+```{r}
+df$movie
+df[,"movie"]
+is.vector(df$movie)
+```
+
+Putting JUST the name or position gives you a one column data frame.
+
+```{r}
+df["movie"]
+df[1]
+is.data.frame(df[1])
+```
+
+Lists: Can extract elements by name using \$ or by position using the
+object position in \[\[\]\]. The object will retain its structure.
+
+```{r}
+tot[[1]]
+tot$vec
+```
+
+You can SUBSET values from objects using \[\] or the subset() command.
+
+```{r}
+v[v=="c"]
+
+subset(df, ratings > 7)
+df[df$ratings > 7, ]
+
+subset(df, ratings == min(df$ratings) | ratings == max(df$ratings))
+```
+
+### Practice 2
+
+1.  Add a new data frame column to your existing data frame that
+    consists of boolean values. Name it "BOO."
+
+2.  Store every object/structure you've created in a list called
+    "complete." Subset the 3rd element of that list and assign it to an
+    object called THIRD.
+
+3.  Use the ratings and greetings vectors in the code chunk below to
+    complete the following exercises:
+
+    a.) Find how many "bad ratings" (a score of two or less) are in the
+    ratings vector. Do this in one line of code.
+
+    b.) Find how many "extreme ratings" there are in one line of code.
+    (Hint: You may need to use an OR operator.)
+
+    c.) Type greetings=="hey" and see what happens. Can you then find
+    (in one line of code) whether more people say 'hey' than 'hi'?
+    (Hint: This will require boolean operators!)
+
+```{r}
+ratings <- c(1,3,5,3,3,2,5,5,4,4,3,4,5)
+greetings <- c("hey","hi","hey","yo","hello","sup","hey","hi")
+```
+
+## Merging
+
+We can combine objects together using various commands.
+
+- **c()** will concatenate objects of similar structures together.
+  (e.g., stack vectors on top of each other).
+
+```{r}
+v1_5 <- c(1:5);v6_10 <- c(6:10)
+c(v1_5, v6_10)
+```
+
+- **cbind()** will combine similar-lengthed vectors treating each as a
+  column or add columns to similarly-lengthed data frame or matrices (or
+  you can add a vector as a column).
+
+```{r}
+v1_5 <- c(1:5);v6_10 <- c(6:10)
+cbind(v1_5, v6_10)
+```
+
+- **rbind()** will combine similar-lengthed vectors treating each as a
+  row or add rows to similarly-lengthed AND NAMED data frame or matrices
+  (or you can add a vector as a row).
+
+```{r}
+v1_5 <- c(1:5);v6_10 <- c(6:10)
+rbind(v1_5, v6_10)
+```
+
+- **merge()** will merge two data frames together. You put the name of
+  the first data frame, followed by the name of the second data frame,
+  followed by the column you're joining by.
+
+```{r}
+evals=data.frame(ID=c(1:4), Evals=c(8,7,5,5), Like = c(7,7,3,3))
+student = data.frame(ID=c(1:4),Major=c(rep("psyc",2), "soc", "cs"), Year=c("junior", "senior","senior","first-year"))
+stud_dat <- merge(evals,student,by="ID")
+stud_dat
+```
+
+### Practice 3
+
+1.  Create a one column data frame called "score", fill it with numbers,
+    and BIND or MERGE it with stud_dat. (Merge requires adding a
+    matching column to the object you create.)
+
+```{r}
+score = data.frame(score = c(11:14))
+cbind(stud_dat, score)
+
+# doing example with non matching column names
+score = data.frame(id = c(1:4), score = c(11:14))
+merge(stud_dat, score, by.x = "ID", by.y = "id")
+```
+
+1.  Extract ID, Evals, and Like from stud_dat and concatenate them into
+    a single vector called "numbers".
+
+```{r}
+numbers = c(stud_dat$ID, stud_dat$Evals, stud_dat$Like)
+numbers
+```
+
+## The end
+
+That's it! Great job! :)
