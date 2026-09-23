@@ -1,0 +1,198 @@
+---
+title: "Lecture 4: Loops Workbook"
+author: "PSYC417"
+format: html
+editor: visual
+---
+
+# Loops Workbook
+
+## Loops
+
+Loops are one of the building blocks of algorithms. They allow us to iterate through a segment of code repeatedly. This will be quite useful to us when we run computational models, create functions, and in many other situations. Loops may be confusing when you first learn about them, but all you are doing is looping through normal bits of code. (The trick is we will be indexing a lot!)
+
+There are different types of loops. Specifically, we will focus on:
+
+-   *for* loops
+
+-   *nested* loops
+
+-   *while* loops.
+
+## *for* loops
+
+*for* loops (and loops in general) have a similar structure to conditionals. You call the command (for or while), have an acceptable "argument" in parentheses, and contain the body of body within curly braces.
+
+for(index in iteration){
+
+Body of code.
+
+}
+
+for(i in 1:5){
+
+print("HOLY MOLY")
+
+}
+
+**Examples**
+
+Using a for loop, print the numbers between one and ten.
+
+```{r}
+
+```
+
+Using a for loop, index an existing vector with the numbers one through ten and print each element of the vector.
+
+```{r}
+
+```
+
+## The paste command
+
+The paste command is useful for printing strings or stitching together values.
+
+Paste "Meg is five years old." using the variables below. (This does not require looping.)
+
+```{r}
+students <- c("Miles","Christian","Meg")
+age <- 5
+
+paste(students[3], "is",age,"years old.")
+```
+
+There is a space by default between pasted elements, but you can chance it to *whatever* you want using the *sep=* argument and putting a value in quotation marks.
+
+```{r}
+paste("What","in","the","world",sep = "I went to the store")
+paste("What", "in", "the", "world", sep=".")
+```
+
+If you want there to be no spaces, then you use sep="" OR the paste0 function with no *sep* argument. This is especially useful for stitching numbers together.
+
+```{r}
+as.numeric(paste(1,2,3,sep=""))
+as.numeric(paste0(1,2,3))
+```
+
+### for Loop Exercises
+
+1.) Create the following variables:
+
+```{r}
+student <- c("John", "Mary", "Alex", "Robin")
+state <- c("Maryland", "New Mexico", "Kansas", "Iowa")
+pronoun <- c("his","her","their (or they)","her")
+gpa <- c(3.8, 3.5, 3.9, 3.8)
+psychology_major <- c("no", "yes", "yes", "no")
+df <- data.frame(student, state, pronoun, gpa, psychology_major)
+df
+```
+
+2.) For each student, print the sentence "\[name\] is from \[state\] and \[pronoun\] gpa is \[gpa\]"
+
+Note: within a loop, paste() on its own will not print the output, you need print(paste(...))
+
+```{r}
+
+```
+
+3.) for each student, print the sentence "\[name\] is cool and \[pronoun\] love(s) psychology." OR "\[name\] is/are NOT COOL and \[pronoun\] do/does not love psychology." depending on whether they are a psychology major or not. Remember: You have to print to view a paste command in R.
+
+```{r}
+
+```
+
+4.) Add a column named "score" to the data frame. Score should be their gpa multiplied by two, multiplied by whether they are a psychology major (so you may need to convert this using a data type coercion...). Use a for loop.
+
+```{r}
+
+```
+
+Now do that without a loop.
+
+```{r}
+
+```
+
+Which one is better?
+
+## Nested Loops
+
+You can place loops within each other and iterate through commands. Here is an example of the logic of nested loops.
+
+```{r}
+for(i in 1:5){
+   for(j in 1:5){
+	print(paste(i, "times", j, "is", i*j))
+   }
+}
+```
+
+### Nested Loops Exercise
+
+1.) Let's print all the combinations of color, shade and transparency from the following three vectors (e.g. "light opaque red", "dark transparent blue"). How many combinations are there in total?
+
+```{r}
+shades <- c("light", "dark")
+transparency <- c("transparent","opaque")
+colors <- c("red","green","blue")
+
+
+```
+
+## While Loops
+
+While loops will iterate across code until a condition is false. (In other words... while a condition is true.) While loops can be more efficient than for loops since for loops have a fixed number of iterations. If you are unsure how many iterations are required, or need to stop the first X number of times that something happens, while loops will be useful. The structure of a while loop is similar, but we usually create some kind of counter/index outside of a loop and increment that manually each time. Additionally, you usually create a condition outside of the loop that will be resolved in the while loop. **Note:** Do not forget to iterate your counter or toggle an end to the while loop or it will run forever!
+
+counter =1; condition = TRUE
+
+while(condition == TRUE){
+
+if(counter \> 5){
+
+print(counter)
+
+condition = FALSE
+
+}
+
+counter = counter + 1
+
+}
+
+### *while* Loops Exercises
+
+Exercises
+
+Run the following code:
+
+```{r}
+df <- data.frame(id = c(1:20), 
+                 age = c(20,22,23,18,18,19,19,21,20,19,19,20,22,22,21,21,23,18,17,20))
+```
+
+1.) Find the first 3 people who are younger than 20 and return their ID in a vector called id_young
+
+```{r}
+count_young <- 0 # this is our counter of people younger than 20
+id_young <- c() # this is where we will store their ID
+i <- 1 # this is the counter to iterate through the rows of df
+#add code here
+```
+
+2.) What if you try to find the first 15 people (but there aren't actually 15 people younger than 20 in your sample)?
+
+```{r}
+count_young <- 0 #this is our counter of people younger than 20
+id_young <- c() #this is where we will store their ID
+i <- 1 #this is the counter to iterate through the rows of df
+#add code here
+```
+
+While loops can be more efficient, but you have to be careful because they can cripple your computing power if they run into an error. You will have to hit the stop button in the terminal or stop in the job in another (e.g., terminate your R session) to resume normal R operations.
+
+## The end
+
+That's it! Great job! :)
