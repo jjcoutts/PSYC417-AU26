@@ -1,0 +1,501 @@
+rank,company,stock_code,profitable,femaleCEO,tot_employees,profits_millions,CEO,cityHQ,stateHQ,pub_priv
+1,Walmart Inc,WMT,yes,no,2100000,11680,C. Douglas McMillon,Bentonville,AR,Public
+2,Amazon.com,AMZN,no,no,1541000,-2722,Andrew R. Jassy,Seattle,WA,Public
+3,Exxon Mobil,XOM,yes,no,62000,55740,Darren W. Woods,Irving,TX,Public
+4,Apple Inc,AAPL,yes,no,164000,99803,Timothy D. Cook,Cupertino,CA,Public
+5,UnitedHealth Group,UNH,yes,no,400000,20120,Andrew P. Witty,Minnetonka,MN,Public
+6,CVS Health,CVS,yes,yes,259500,4149,Karen S. Lynch,Woonsocket,RI,Public
+7,Berkshire Hathaway,BRKA,no,no,383000,-22819,Warren E. Buffett,Omaha,NE,Public
+8,Alphabet Inc,GOOGL,yes,no,190234,59972,Sundar Pichai,Mountain View,CA,Public
+9,McKesson,MCK,yes,no,66500,1114,Brian S. Tyler,Irving,TX,Public
+10,Chevron Corp,CVX,yes,no,43846,35465,Michael K. Wirth,San Ramon,CA,Public
+11,AmerisourceBergen,ABC,yes,no,41500,1699,Steven H. Collis,Conshohocken,PA,Public
+12,Costco Wholesale,COST,yes,no,304000,5844,W. Craig Jelinek,Issaquah,WA,Public
+13,Microsoft Corp,MSFT,yes,no,221000,72738,Satya Nadella,Redmond,WA,Public
+14,Cardinal Health,CAH,no,no,46035,-933,Jason Hollar,Dublin,OH,Public
+15,Cigna Corp,CI,yes,no,70231,6668,David M. Cordani,Bloomfield,CT,Public
+16,Marathon Petroleum,MPC,yes,no,17800,14516,Michael J. Hennigan,Findlay,OH,Public
+17,Phillips 66,PSX,yes,no,13000,11024,Mark E. Lashier,Houston,TX,Public
+18,Valero Services,VLO,yes,no,9743,11528,R. Lane Riggs,San Antonio,TX,Public
+19,Ford Motor Co,F,no,no,173000,-1981,James D. Farley Jr.,Dearborn,MI,Public
+20,Home Depot,HD,yes,no,471600,17105,Edward P. Decker,Atlanta,GA,Public
+21,General Motors,GM,yes,yes,167000,9934,Mary T. Barra,Detroit,MI,Public
+22,Elevance Health,ELV,yes,yes,102300,6025,Gail K. Boudreaux,Indianapolis,IN,Public
+23,JPMorgan Chase & Co,JPM,yes,no,293723,37676,James Dimon,New York,NY,Public
+24,Kroger Co,KR,yes,no,430000,2244,W. Rodney McMullen,Cincinnati,OH,Public
+25,Centene Corp,CNC,yes,yes,74300,1202,Sarah M. London,St. Louis,MO,Public
+26,Verizon Communications,VZ,yes,no,117100,21256,Hans E. Vestberg,New York,NY,Public
+27,Walgreens,WBA,yes,yes,262500,4337,Ginger Graham,Deerfield,IL,Public
+28,Fannie Mae,FNMA,yes,yes,8000,12923,Priscilla Almodovar,Washington,DC,Public
+29,Comcast Corp,CMCSA,yes,no,186000,5370,Brian L. Roberts,Philadelphia,PA,Public
+30,AT&T Inc,T,no,no,160700,-8524,John T. Stankey,Dallas,TX,Public
+31,Meta,META,yes,no,86482,23200,Mark Zuckerberg,Menlo Park,CA,Public
+32,Bank of America,BAC,yes,no,216823,27528,Brian T. Moynihan,Charlotte,NC,Public
+33,Target Corp,TGT,yes,no,440000,2780,Brian C. Cornell,Minneapolis,MN,Public
+34,Dell Technologies,DELL,yes,no,133000,2442,Michael S. Dell,Round Rock,TX,Public
+35,Archer Daniels Midland,ADM,yes,no,41181,4340,Juan R. Luciano,Chicago,IL,Public
+36,Citigroup Inc,C,yes,yes,238104,14845,Jane Fraser,New York,NY,Public
+37,United Parcel Service,UPS,yes,yes,404700,11548,Carol B. Tomé,Atlanta,GA,Public
+38,Pfizer Inc,PFE,yes,no,83000,31372,Albert Bourla,New York,NY,Public
+39,Lowe's Companies,LOW,yes,no,244500,6437,Marvin R. Ellison,Mooresville,NC,Public
+40,Johnson & Johnson,JNJ,yes,no,152700,17941,Joaquin Duato,New Brunswick,NJ,Public
+41,FedEx Corp,FDX,yes,no,464400,3826,Rajesh Subramaniam,Memphis,TN,Public
+42,Humana Inc,HUM,yes,no,67100,2806,Bruce D. Broussard,Louisville,KY,Public
+43,Energy Transfer LP,ET,yes,no,12565,4756,Thomas E. Long/Marshall S. McCrea III,Dallas,TX,Public
+44,State Farm Insurance,,no,no,60519,-6654,Michael L. Tipsord,Bloomington,IL,Private
+45,Freddie Mac,FMCC,yes,no,7819,9327,Michael J. DeVito,McLean,VA,Public
+46,PepsiCo Inc,PEP,yes,no,315000,8910,Ramon L. Laguarta,Purchase,NY,Public
+47,Wells Fargo,WFC,yes,no,238000,13182,Charles W. Scharf,San Francisco,CA,Public
+48,Walt Disney Co,DIS,yes,no,195800,3145,Robert A. Iger,Burbank,CA,Public
+49,ConocoPhillips,COP,yes,no,9500,18680,Ryan M. Lance,Houston,TX,Public
+50,Tesla Inc,TSLA,yes,no,127855,12556,Elon Musk,Austin,TX,Public
+51,Procter & Gamble,PG,yes,no,106000,14742,Jon R. Moeller,Cincinnati,OH,Public
+52,General Electric,GE,yes,no,172000,225,H. Lawrence Culp Jr.,Boston,MA,Public
+53,Albertsons Companies,ACI,yes,no,195750,1620,Vivek Sankaran,Boise,ID,Public
+54,MetLife,MET,yes,no,45000,2539,Michel A. Khalaf,New York,NY,Public
+55,Goldman Sachs Group,GS,yes,no,48500,11261,David M. Solomon,New York,NY,Public
+56,Sysco,SYY,yes,no,70510,1359,Kevin P. Hourican,Houston,TX,Public
+57,RTX Corp,RTX,yes,no,182000,5197,Gregory J. Hayes,Arlington,VA,Public
+58,Boeing Co,BA,no,no,156000,-4935,David L. Calhoun,Arlington,VA,Public
+59,StoneX Group,SNEX,yes,no,3615,207,Sean M. O&#039;Connor,New York,NY,Public
+60,Lockheed Martin,LMT,yes,no,116000,5732,James D. Taiclet Jr.,Bethesda,MD,Public
+61,Morgan Stanley,MS,yes,no,82427,11029,James P. Gorman,New York,NY,Public
+62,Intel Corp,INTC,yes,no,131900,8014,Patrick P. Gelsinger,Santa Clara,CA,Public
+63,HP,HPQ,yes,no,58000,3203,Enrique J. Lores,Palo Alto,CA,Public
+64,TD Synnex,SNX,yes,no,28500,651,Richard T. Hume,Fremont,CA,Public
+65,IBM Corp,IBM,yes,no,303100,1639,Arvind Krishna,Armonk,NY,Public
+66,HCA Healthcare,HCA,yes,no,250500,5643,Samuel N. Hazen,Nashville,TN,Public
+67,Prudential Financial,PRU,no,no,39583,-1438,Charles F. Lowrey,Newark,NJ,Public
+68,Caterpillar Inc,CAT,yes,no,109100,6705,D. James Umpleby III,Irving,TX,Public
+69,Merck & Co,MRK,yes,no,68000,14519,Robert M. Davis,Rahway,NJ,Public
+70,World Kinect,WKC,yes,no,5214,114,Michael J. Kasbar,Miami,FL,Public
+71,New York Life Insurance,,no,no,15050,-1127,Craig DeSanto,New York,NY,Private
+72,Enterprise Products Partners,EPD,yes,no,7300,5490,A. James Teague/W. Randall Fowler,Houston,TX,Public
+73,Abbvie Inc,ABBV,yes,no,50000,11836,Richard A. Gonzalez,North Chicago,IL,Public
+74,Plains GP Holdings,PAGP,yes,no,4100,168,Wilfred C.W. Chiang,Houston,TX,Public
+75,Dow Inc,DOW,yes,no,37800,4582,James R. Fitterling,Midland,MI,Public
+76,American International Group,AIG,yes,no,26200,10276,Peter S. Zaffino,New York,NY,Public
+77,American Express,AXP,yes,no,77300,7514,Stephen J. Squeri,New York,NY,Public
+78,Publix Super Markets,,yes,no,242000,2918,Randall T. Jones Sr.,Lakeland,FL,Private
+79,Charter Communications,CHTR,yes,no,101700,5055,Christopher L. Winfrey,Stamford,CT,Public
+80,Tyson Foods,TSN,yes,no,142000,3238,Donnie D. King,Springdale,AR,Public
+81,Deere & Co,DE,yes,no,82239,7131,John C. May,Moline,IL,Public
+82,Cisco Systems,CSCO,yes,no,83300,11812,Charles H. Robbins,San Jose,CA,Public
+83,Nationwide,,yes,no,24791,988,Kirt A. Walker,Columbus,OH,Private
+84,Allstate,ALL,no,no,54250,-1311,Thomas J. Wilson,Northbrook,IL,Public
+85,Delta Air Lines,DAL,yes,no,95000,1318,Edward H. Bastian,Atlanta,GA,Public
+86,Liberty Mutual,,yes,no,50000,414,Timothy M. Sweeney,Boston,MA,Private
+87,TJX,TJX,yes,no,329000,3498,Ernie L. Herrman,Framingham,MA,Public
+88,Progressive Publications,PGR,yes,yes,55063,722,Susan Patricia Griffith,Mayfield Village,OH,Public
+89,American Airlines,AAL,yes,no,129700,127,Robert D. Isom,Fort Worth,TX,Public
+90,CHS Inc,,yes,no,10014,1679,Jay D. Debertin,Inver Grove Heights,MN,Private
+91,Performance Food Group,PFGC,yes,no,34825,113,George L. Holm,Richmond,VA,Public
+92,PBF Energy,PBF,yes,no,3616,2877,Thomas J. Nimbley,Parsippany,NJ,Public
+93,Nike Inc,NKE,yes,no,79100,6046,John J. Donahoe II,Beaverton,OR,Public
+94,Best Buy,BBY,yes,yes,71100,1419,Corie S. Barry,Richfield,MN,Public
+95,Bristol-Myers Squibb,BMY,yes,no,34300,6327,Giovanni Caforio,New York,NY,Public
+96,United Airlines,UAL,yes,no,92795,737,J. Scott Kirby,Chicago,IL,Public
+97,Thermo Fisher Scientific,TMO,yes,no,130000,6950,Marc N. Casper,Waltham,MA,Public
+98,Qualcomm Inc,QCOM,yes,no,51000,12936,Cristiano R. Amon,San Diego,CA,Public
+99,Abbott Laboratories,ABT,yes,no,115000,6933,Robert B. Ford,Abbott Park,IL,Public
+100,Coca-Cola Co,KO,yes,no,82500,9542,James R. Quincey,Atlanta,GA,Public
+101,Oracle Corp,ORCL,yes,yes,143000,6717,Safra A. Catz,Austin,TX,Public
+102,Nucor Corp,NUE,yes,no,31400,7607,Leon J. Topalian,Charlotte,NC,Public
+103,TIAA,,yes,yes,16070,494,Thasunda Brown Duckett,New York,NY,Private
+104,Massachusetts Mutual Life Insurance,,yes,no,10662,1485,Roger W. Crandall,Springfield,MA,Private
+105,General Dynamics,GD,yes,yes,106500,3390,Phebe N. Novakovic,Reston,VA,Public
+106,Capital One Financial,COF,yes,no,55943,7360,Richard D. Fairbank,McLean,VA,Public
+107,Sinclair Inc,DINO,yes,no,5223,2923,Tim Go,Dallas,TX,Public
+108,Dollar General,DG,yes,no,170000,2416,Jeffery C. Owen,Goodlettsville,TN,Public
+109,Arrow Electronics,ARW,yes,no,22300,1427,Sean J. Kerins,Centennial,CO,Public
+110,Occidental Petroleum,OXY,yes,yes,11973,13304,Vicki A. Hollub,Houston,TX,Public
+111,Northwestern Mutual Life Insurance,,yes,no,8323,912,John E. Schlifske,Milwaukee,WI,Private
+112,Travelers,TRV,yes,no,32175,2842,Alan D. Schnitzer,New York,NY,Public
+113,Northrop Grumman,NOC,yes,yes,95000,4896,Kathy J. Warden,Falls Church,VA,Public
+114,USAA,,no,no,36820,-1296,Wayne Peacock,San Antonio,TX,Private
+115,Honeywell International,HON,yes,no,97000,4966,Vimal Kapur,Charlotte,NC,Public
+116,3M Co,MMM,yes,no,92000,5777,Michael F. Roman,St. Paul,MN,Public
+117,US Foods Holding,USFD,yes,no,29000,265,David E. Flitman,Rosemont,IL,Public
+118,Warner Bros. Discovery,WBD,no,no,37500,-7371,David M. Zaslav,New York,NY,Public
+119,Lennar,LEN,yes,no,12012,4614,Jonathan M. Jaffe,Miami,FL,Public
+120,D.R. Horton,DHI,yes,no,13237,5858,David V. Auld,Arlington,TX,Public
+121,Jabil,JBL,yes,no,250000,996,Kenneth S. Wilson,St. Petersburg,FL,Public
+122,Cheniere Energy,LNG,yes,no,1551,1428,Jack A. Fusco,Houston,TX,Public
+123,Broadcom,AVGO,yes,no,20000,11495,Hock E. Tan,San Jose,CA,Public
+124,CarMax,KMX,yes,no,32647,1151,William D. Nash,Richmond,VA,Public
+125,Starbucks Corp,SBUX,yes,no,402000,3282,Laxman Narasimhan,Seattle,WA,Public
+126,Molina Healthcare,MOH,yes,no,15000,792,Joseph M. Zubretsky,Long Beach,CA,Public
+127,Uber Technologies,UBER,no,no,32800,-9141,Dara Khosrowshahi,San Francisco,CA,Public
+128,Philip Morris International,PM,yes,no,79800,9048,Jacek Olczak,Stamford,CT,Public
+129,Netflix Inc,NFLX,yes,no,12800,4492,Ted Sarandos/Gregory K. Peters,Los Gatos,CA,Public
+130,NRG Energy,NRG,yes,no,6603,1221,Mauricio Gutierrez,Houston,TX,Public
+131,Mondelez International,MDLZ,yes,no,91000,2717,Dirk Van de Put,Chicago,IL,Public
+132,Danaher,DHR,yes,no,80000,7209,Rainer M. Blair,Washington,DC,Public
+133,Salesforce.com,CRM,yes,no,79390,208,Marc R. Benioff,San Francisco,CA,Public
+134,Paramount Global,PARA,yes,no,27400,1104,Robert M. Bakish,New York,NY,Public
+135,CBRE Group,CBRE,yes,no,115000,1407,Robert E. Sulentic,Dallas,TX,Public
+136,Micron Technology,MU,yes,no,48000,8687,Sanjay Mehrotra,Boise,ID,Public
+137,Visa Inc,V,yes,no,26500,14957,Ryan McInerney,San Francisco,CA,Public
+138,Southern Co,SO,yes,no,27562,3524,Christopher C. Womack,Atlanta,GA,Public
+139,United Natural Foods,UNFI,yes,no,30300,248,Sandy Douglas,Providence,RI,Public
+140,Paccar,PCAR,yes,no,31100,3012,R. Preston Feight,Bellevue,WA,Public
+141,Duke Energy,DUK,yes,yes,27859,2550,Lynn J. Good,Charlotte,NC,Public
+142,Eli Lilly & Co,LLY,yes,no,39000,6245,David A. Ricks,Indianapolis,IN,Public
+143,Hewlett Packard Enterprise,HPE,yes,no,60200,868,Antonio F. Neri,Spring,TX,Public
+144,Dollar Tree,DLTR,yes,no,136287,1615,Richard W. Dreiling,Chesapeake,VA,Public
+145,Lithia Motors,LAD,yes,no,21875,1251,Bryan B. DeBoer,Medford,OR,Public
+146,Cummins,CMI,yes,yes,73600,2151,Jennifer Rumsey,Columbus,IN,Public
+147,Penske Corp,PAG,yes,no,26816,1380,Roger S. Penske,Bloomfield Hills,MI,Public
+148,PayPal Holdings,PYPL,yes,no,29900,2419,Daniel H. Schulman,San Jose,CA,Public
+149,U.S. Bancorp,USB,yes,no,76646,5825,Andrew J. Cecere,Minneapolis,MN,Public
+150,Gilead Sciences,GILD,yes,no,17000,4592,Daniel P. O&#039;Day,Foster City,CA,Public
+151,AutoNation,AN,yes,no,23600,1377,Michael M. Manley,Fort Lauderdale,FL,Public
+152,Nvidia,NVDA,yes,no,26196,4368,Jensen Huang,Santa Clara,CA,Public
+153,Kraft Heinz Co,KHC,yes,no,37000,2363,Miguel Patricio,Chicago,IL,Public
+154,Amgen Inc,AMGN,yes,no,25200,6552,Robert A. Bradway,Thousand Oaks,CA,Public
+155,Applied Materials,AMAT,yes,no,33000,6525,Gary E. Dickerson,Santa Clara,CA,Public
+156,EOG Resources,EOG,yes,no,2850,7759,Ezra Y. Yacob,Houston,TX,Public
+157,Truist Financial,TFC,yes,no,53987,6260,William H. Rogers Jr.,Charlotte,NC,Public
+158,Macy's,M,yes,no,94570,1177,Jeffrey Gennette,New York,NY,Public
+159,Union Pacific Corp,UNP,yes,no,33179,6998,Jim Vena,Omaha,NE,Public
+160,C.H. Robinson Worldwide,CHRW,yes,no,17399,941,Scott P. Anderson,Eden Prairie,MN,Public
+161,Rite Aid Corp,RAD,no,yes,53000,-539,Elizabeth Burr,Philadelphia,PA,Public
+162,Constellation Energy,CEG,no,no,13370,-160,Joseph Dominguez,Baltimore,MD,Public
+163,Avnet,AVT,yes,no,15300,692,Philip R. Gallagher,Phoenix,AZ,Public
+164,Pioneer Natural Resources,PXD,yes,no,2076,7845,Scott D. Sheffield,Irving,TX,Public
+165,Southwest Airlines,LUV,yes,no,66656,539,Robert E. Jordan,Dallas,TX,Public
+166,CDW,CDW,yes,yes,15100,1115,Christine A. Leahy,Lincolnshire,IL,Public
+167,Advanced Micro Devices,AMD,yes,yes,25000,1320,Lisa T. Su,Santa Clara,CA,Public
+168,PNC Financial Services,PNC,yes,no,60720,6041,William S. Demchak,Pittsburgh,PA,Public
+169,McDonald's Corp,MCD,yes,no,150000,6177,Christopher J. Kempczinski,Chicago,IL,Public
+170,Cleveland-Cliffs,CLF,yes,no,27000,1335,C. Lourenco Goncalves,Cleveland,OH,Public
+171,Freeport-McMoRan,FCX,yes,no,25600,3468,Richard C. Adkerson,Phoenix,AZ,Public
+172,Builders FirstSource,BLDR,yes,no,29000,2749,Dave Rush,Dallas,TX,Public
+173,ONEOK Inc,OKE,yes,no,2966,1722,Pierce H. Norton II,Tulsa,OK,Public
+174,Hartford Financial Services Group,HIG,yes,no,18800,1815,Christopher J. Swift,Hartford,CT,Public
+175,Charles Schwab,SCHW,yes,no,35300,7183,Walter W. Bettinger II,Westlake,TX,Public
+176,Steel Dynamics Inc,STLD,yes,no,12060,3863,Mark D. Millett,Fort Wayne,IN,Public
+177,MasterCard Inc,MA,yes,no,29900,9930,Michael Miebach,Purchase,NY,Public
+178,Sherwin-Williams Co,SHW,yes,no,64366,2020,John G. Morikis,Cleveland,OH,Public
+179,Genuine Parts,GPC,yes,no,58000,1183,Paul D. Donahue,Atlanta,GA,Public
+180,PG&E Corp,PCG,yes,yes,26010,1800,Patricia K. Poppe,Oakland,CA,Public
+181,WESCO International,WCC,yes,no,20000,861,John J. Engel,Pittsburgh,PA,Public
+182,Murphy USA,MUSA,yes,no,10550,673,R. Andrew Clyde,El Dorado,AR,Public
+183,WestRock,WRK,yes,no,50500,945,David B. Sewell,Atlanta,GA,Public
+184,International Paper,IP,yes,no,39000,1504,Mark S. Sutton,Memphis,TN,Public
+185,Baker Hughes,BKR,no,no,55000,-601,Lorenzo Simonelli,Houston,TX,Public
+186,United States Steel,X,yes,no,22740,2524,David B. Burritt,Pittsburgh,PA,Public
+187,NextEra Energy,NEE,yes,no,15300,4147,John W. Ketchum,Juno Beach,FL,Public
+188,Targa Resources,TRGP,yes,no,2850,1196,Matthew J. Meloy,Houston,TX,Public
+189,Lear,LEA,yes,no,168700,328,Raymond E. Scott,Southfield,MI,Public
+190,Jones Lang LaSalle,JLL,yes,no,103300,655,Christian Ulbrich,Chicago,IL,Public
+191,Goodyear Tire & Rubber,GT,yes,no,74000,202,Richard J. Kramer,Akron,OH,Public
+192,Marriott International,MAR,yes,no,140000,2358,Anthony G. Capuano,Bethesda,MD,Public
+193,Marsh & McLennan,MMC,yes,no,85000,3050,John Q. Doyle,New York,NY,Public
+194,Altria Group,MO,yes,no,6300,5764,William F. Gifford Jr.,Richmond,VA,Public
+195,Coupang,CPNG,no,no,63000,-92,Bom Kim,Seattle,WA,Public
+196,Carrier Global,CARR,yes,no,52000,3534,David L. Gitlin,Palm Beach Gardens,FL,Public
+197,Halliburton,HAL,yes,no,45000,1572,Jeffrey A. Miller,Houston,TX,Public
+198,Delek US Holdings,DK,yes,no,3746,257,Avigal Soreq,Brentwood,TN,Public
+199,Kimberly-Clark,KMB,yes,no,44000,1934,Michael D. Hsu,Irving,TX,Public
+200,Texas Instruments,TXN,yes,no,33000,8749,Haviv Ilan,Dallas,TX,Public
+201,Bank of New York Mellon,BK,yes,no,51700,2573,Robin Vince,New York,NY,Public
+202,ManpowerGroup,MAN,yes,no,30900,374,Jonas Prising,Milwaukee,WI,Public
+203,Whirlpool,WHR,no,no,61000,-1519,Marc R. Bitzer,Benton Harbor,MI,Public
+204,Waste Management Inc,WM,yes,no,49500,2238,James C. Fish Jr.,Houston,TX,Public
+205,American Electric Power,AEP,yes,yes,16974,2307,Julia A. Sloat,Columbus,OH,Public
+206,Emerson Electric,EMR,yes,no,85500,3231,S. L. Karsanbhai,St. Louis,MO,Public
+207,AFLAC Inc,AFL,yes,no,12882,4201,Daniel P. Amos,Columbus,GA,Public
+208,Cognizant Technology Solutions,CTSH,yes,no,355300,2290,Ravi Kumar S,Teaneck,NJ,Public
+209,Becton Dickinson & Co,BDX,yes,no,77000,1779,Thomas E. Polen,Franklin Lakes,NJ,Public
+210,BJ's Wholesale Club,BJ,yes,no,34000,513,Robert W. Eddy,Marlborough,MA,Public
+211,Moderna,MRNA,yes,no,3900,8362,Stephane Bancel,Cambridge,MA,Public
+212,DTE Energy,DTE,yes,no,10250,1083,Gerardo Norcia,Detroit,MI,Public
+213,Land O'Lakes,,yes,yes,9000,241,Beth E. Ford,Arden Hills,MN,Private
+214,Kinder Morgan Inc,KMI,yes,yes,10525,2548,Kimberly Dang,Houston,TX,Public
+215,Tenet Healthcare,THC,yes,no,89088,411,Saumya Sutaria,Dallas,TX,Public
+216,Devon Energy,DVN,yes,no,1800,6015,Richard E. Muncrief,Oklahoma City,OK,Public
+217,Mosaic,MOS,yes,no,13570,3583,James C. O&#039;Rourke,Tampa,FL,Public
+218,Exelon Corp,EXC,yes,no,19063,2170,Calvin G. Butler Jr.,Chicago,IL,Public
+219,General Mills,GIS,yes,no,32500,2707,Jeffrey L. Harmening,Minneapolis,MN,Public
+220,Global Partners,GLP,yes,no,3585,362,Eric Slifka,Waltham,MA,Public
+221,Western Digital,WDC,yes,no,65000,1500,David V. Goeckeler,San Jose,CA,Public
+222,Lincoln National,LNC,no,yes,11316,-2241,Ellen G. Cooper,Radnor,PA,Public
+223,Ross Stores,ROST,yes,yes,101000,1512,Barbara Rentler,Dublin,CA,Public
+224,Stryker Corp,SYK,yes,no,51000,2358,Kevin A. Lobo,Kalamazoo,MI,Public
+225,Kyndryl Holdings,KD,no,no,90000,-2054,Martin J. Schroeter,New York,NY,Public
+226,Kohl's,KSS,no,no,66500,-19,Thomas A. Kingsbury,Menomonee Falls,WI,Public
+227,Stanley Black & Decker,SWK,yes,no,54200,1063,Donald Allan Jr.,New Britain,CT,Public
+228,Colgate-Palmolive,CL,yes,no,33800,1785,Noel R. Wallace,New York,NY,Public
+229,BlackRock,BLK,yes,no,19800,5178,Laurence D. Fink,New York,NY,Public
+230,Fiserv,FISV,yes,no,41000,2530,Frank J. Bisignano,Brookfield,WI,Public
+230,Estee Lauder Companies,EL,yes,no,53865,2390,Fabrizio Freda,New York,NY,Public
+232,PPG Industries,PPG,yes,no,52000,1026,Timothy M. Knavish,Pittsburgh,PA,Public
+233,Adobe Inc,ADBE,yes,no,29239,4756,Shantanu Narayen,San Jose,CA,Public
+234,Block Inc,SQ,no,no,12428,-541,Jack Dorsey,San Francisco,CA,Public
+235,Synchrony Financial,SYF,yes,no,18500,3016,Brian D. Doubles,Stamford,CT,Public
+236,Principal Financial,PFG,yes,no,19300,4812,Daniel J. Houston,Des Moines,IA,Public
+237,Lumen Technologies,LUMN,no,yes,29000,-1548,Kathleen E. Johnson,Monroe,LA,Public
+238,Corteva,CTVA,yes,no,21000,1147,Charles V. Magro,Indianapolis,IN,Public
+239,Andersons,ANDE,yes,no,2244,131,Patrick E. Bowe,Maumee,OH,Public
+240,Lam Research,LRCX,yes,no,17700,4605,Timothy M. Archer,Fremont,CA,Public
+241,Edison International,EIX,yes,no,13110,612,Pedro J. Pizarro,Rosemead,CA,Public
+242,Dominion Energy,D,yes,no,17200,994,Robert M. Blue,Richmond,VA,Public
+243,Booking Holdings,BKNG,yes,no,21492,3058,Glenn D. Fogel,Norwalk,CT,Public
+244,Quanta Services,PWR,yes,no,47300,491,Earl C. Austin Jr.,Houston,TX,Public
+245,Expeditors Intl. of Washington,EXPD,yes,no,20302,1357,Jeffrey S. Musser,Seattle,WA,Public
+246,L3Harris Technologies,LHX,yes,no,46000,1062,Christopher E. Kubasik,Melbourne,FL,Public
+247,Reliance Steel & Aluminum,RS,yes,yes,14750,1840,Karla R. Lewis,Scottsdale,AZ,Public
+248,Live Nation Entertainment,LYV,yes,no,20550,296,Michael Rapino,Beverly Hills,CA,Public
+249,DISH Network,DISH,yes,no,14200,2303,W. Erik Carlson,Englewood,CO,Public
+250,DuPont Co,DD,yes,no,23000,5868,Edward D. Breen,Wilmington,DE,Public
+251,Automatic Data Processing,ADP,yes,yes,60000,2949,Maria Black,Roseland,NJ,Public
+252,Group 1 Automotive,GPI,yes,no,15491,752,Daryl A. Kenningham,Houston,TX,Public
+253,Aramark,ARMK,yes,no,273875,195,John J. Zillmer,Philadelphia,PA,Public
+254,Thor Industries,THO,yes,no,32000,1138,Robert W. Martin,Elkhart,IN,Public
+255,DXC Technology,DXC,yes,no,130000,718,Michael J. Salvino,Ashburn,VA,Public
+256,Viatris Inc,VTRS,yes,no,37000,2079,Scott A. Smith,Canonsburg,PA,Public
+257,Reinsurance Group of America,RGA,yes,yes,3800,623,Anna Manning,Chesterfield,MO,Public
+258,AutoZone,AZO,yes,no,90720,2430,William C. Rhodes III,Memphis,TN,Public
+259,PulteGroup,PHM,yes,no,6524,2617,Ryan R. Marshall,Atlanta,GA,Public
+260,Illinois Tool Works,ITW,yes,no,46000,3034,E. Scott Santi,Glenview,IL,Public
+261,Parker-Hannifin,PH,yes,yes,55090,1316,Jennifer A. Parmentier,Cleveland,OH,Public
+262,BorgWarner,BWA,yes,no,52700,944,Frederic B. Lissalde,Auburn Hills,MI,Public
+263,Westlake,WLK,yes,no,15920,2247,Albert Yuan Chao,Houston,TX,Public
+264,Edison International,ED,yes,no,14319,1660,Timothy P. Cawley,New York,NY,Public
+265,Gap,GPS,no,no,95000,-202,Richard Dickson,San Francisco,CA,Public
+266,Opendoor Technologies,OPEN,no,yes,2570,-1353,Carrie A. Wheeler,Tempe,AZ,Public
+267,Nordstrom,JWN,yes,no,60000,245,Erik B. Nordstrom,Seattle,WA,Public
+268,Asbury Automotive Group,ABG,yes,no,13000,997,David W. Hult,Duluth,GA,Public
+269,Ball,BALL,yes,no,21000,719,Daniel W. Fisher,Westminster,CO,Public
+270,Kellogg,K,yes,no,30000,960,Steven A. Cahillane,Battle Creek,MI,Public
+271,Xcel Energy,XEL,yes,no,11982,1736,Robert C. Frenzel,Minneapolis,MN,Public
+272,W.W. Grainger,GWW,yes,no,24500,1547,D.G. Macpherson,Lake Forest,IL,Public
+273,Discover Financial Services,DFS,yes,no,20200,4392,John B. Owen,Riverwoods,IL,Public
+274,Baxter Auto Group,BAX,no,no,60000,-2433,José E. Almeida,Deerfield,IL,Public
+275,Southwestern Energy,SWN,yes,no,1118,1849,William J. Way,Spring,TX,Public
+276,DCP Midstream,DCP,yes,no,1910,1052,Donald A. Baldridge,Denver,CO,Public
+277,Jacobs Solutions,J,yes,no,58350,644,Bob Pragada,Dallas,TX,Public
+278,Laboratory Corp of America,LH,yes,no,75200,1279,Adam H. Schechter,Burlington,NC,Public
+279,CSX Corp,CSX,yes,no,22542,4166,Joseph R. Hinrichs,Jacksonville,FL,Public
+280,J.B. Hunt Transport Services,JBHT,yes,no,37151,969,John N. Roberts III,Lowell,AR,Public
+281,Guardian Life Ins. Co. of America,,yes,no,8025,71,Andrew J. McMahon,New York,NY,Private
+282,Jackson Financial,JXN,yes,yes,3435,5697,Laura L. Prieskorn,Lansing,MI,Public
+283,Fidelity National Information Services,FIS,no,yes,69000,-16720,Stephanie L. Ferris,Jacksonville,FL,Public
+284,Berry Global Group,BERY,yes,no,46000,766,Thomas E. Salmon,Evansville,IN,Public
+285,Sempra Energy,SRE,yes,no,15785,2138,Jeffrey W. Martin,San Diego,CA,Public
+286,IQVIA Holdings,IQV,yes,no,86000,1091,Ari Bousbib,Durham,NC,Public
+287,O'Reilly Automotive,ORLY,yes,no,79679,2173,Gregory D. Johnson,Springfield,MO,Public
+288,Leidos Inc,LDOS,yes,no,45000,685,Thomas A. Bell,Reston,VA,Public
+289,Ameriprise Financial,AMP,yes,no,13500,2559,James M. Cracchiolo,Minneapolis,MN,Public
+290,Omnicom Group,OMC,yes,no,74200,1317,John D. Wren,New York,NY,Public
+291,Tractor Supply Co,TSCO,yes,no,36500,1089,Harry A. Lawton III,Brentwood,TN,Public
+292,Corning,GLW,yes,no,57500,1316,Wendell P. Weeks,Corning,NY,Public
+293,Ecolab Inc,ECL,yes,no,47000,1092,Christophe Beck,St. Paul,MN,Public
+294,Icahn Enterprises,IEP,no,no,20041,-183,David Willetts,Sunny Isles Beach,FL,Public
+295,Farmers Insurance Exchange,,no,no,11344,-314,Raul Vargas,Woodland Hills,CA,Private
+296,Keurig Dr Pepper,KDP,yes,no,28000,1436,Robert J. Gamgort,Burlington,MA,Public
+297,Loews Hotels,L,yes,no,12050,1012,James S. Tisch,New York,NY,Public
+298,Equitable Holdings,EQH,yes,no,10250,1785,Mark Pearson,New York,NY,Public
+299,Sonic Automotive,SAH,yes,no,10300,89,David Bruton Smith,Charlotte,NC,Public
+300,Fox Corp,FOXA,yes,no,10600,1205,Lachlan K. Murdoch,New York,NY,Public
+301,American Family Insurance Group,,no,no,12990,-1904,William Westrate,Madison,WI,Private
+302,Entergy Corp,ETR,yes,no,11707,1103,Andrew S. Marsh,New Orleans,LA,Public
+303,Fluor Corp,FLR,yes,no,39576,145,David E. Constable,Irving,TX,Public
+304,Vistra,VST,no,no,4910,-1227,James A. Burke,Irving,TX,Public
+305,State Street,STT,yes,no,42226,2774,Ronald P. O&#039;Hanley,Boston,MA,Public
+306,Otis Worldwide,OTIS,yes,yes,69000,1253,Judith F. Marks,Farmington,CT,Public
+307,Peter Kiewit Sons,,yes,no,25700,710,Rick Lanoha,Omaha,NE,Private
+308,Carvana,CVNA,no,no,16600,-1587,Ernest C. Garcia III,Tempe,AZ,Public
+309,Republic Services,RSG,yes,no,40000,1488,Jon Vander Ark,Phoenix,AZ,Public
+310,AECOM Global,ACM,yes,no,50000,311,W. Troy Rudd,Dallas,TX,Public
+311,Universal Health Services,UHS,yes,no,82500,676,Marc D. Miller,King of Prussia,PA,Public
+312,Pacific Life,,yes,no,3950,763,Darryl D. Button,Newport Beach,CA,Private
+313,VMWare Inc,VMW,yes,no,38300,1314,Raghu Raghuram,Palo Alto,CA,Public
+314,Southern Co,,yes,no,2594,309,John F. Barrett,Cincinnati,OH,Private
+315,MGM Resorts International,MGM,yes,no,66000,1473,William J. Hornbuckle,Las Vegas,NV,Public
+316,Casey's General Stores,CASY,yes,no,31466,340,Darren M. Rebelez,Ankeny,IA,Public
+317,Georgia Crown Distributing,CCK,yes,no,26000,727,Timothy J. Donahue,Tampa,FL,Public
+318,Textron Inc,TXT,yes,no,34000,861,Scott C. Donnelly,Providence,RI,Public
+319,LKQ,LKQ,yes,no,45000,1149,Dominick P. Zarcone,Chicago,IL,Public
+320,Norfolk Southern,NSC,yes,no,19300,3270,Alan H. Shaw,Atlanta,GA,Public
+321,Intuit Inc,INTU,yes,no,21850,2066,Sasan K. Goodarzi,Mountain View,CA,Public
+322,Air Products & Chemicals Inc,APD,yes,no,20805,2256,Seifi Ghasemi,Allentown,PA,Public
+323,Boston Scientific Corp,BSX,yes,no,45000,698,Michael F. Mahoney,Marlborough,MA,Public
+324,AGCO,AGCO,yes,no,25600,890,Eric P. Hansotia,Duluth,GA,Public
+325,Henry Schein,HSIC,yes,no,22000,538,Stanley M. Bergman,Melville,NY,Public
+326,Amphenol,APH,yes,no,91000,1902,R. Adam Norwitt,Wallingford,CT,Public
+327,AES,AES,no,no,9100,-546,Andrés R. Gluski,Arlington,VA,Public
+328,Mutual of Omaha,,no,no,6350,-177,James T. Blackledge,Omaha,NE,Private
+329,Ovintiv,OVV,yes,no,1744,3637,Brendan M. McCracken,Denver,CO,Public
+330,Hormel Foods,HRL,yes,no,20000,1000,James P. Snee,Austin,MN,Public
+331,Alcoa,AA,no,no,13100,-123,Roy C. Harvey,Pittsburgh,PA,Public
+332,International Flavors & Fragrances,IFF,no,no,24600,-1871,Franklin K. Clyburn Jr.,New York,NY,Public
+333,Jones Financial (Edward Jones),,yes,yes,52000,1404,Penny Pennington,Des Peres,MO,Private
+334,Dick's Sporting Goods,DKS,yes,yes,35800,1043,Lauren R. Hobart,Coraopolis,PA,Public
+335,Eversource Energy,ES,yes,no,9626,1405,Joseph R. Nolan Jr.,Springfield,MA,Public
+336,Wayfair,W,no,no,15745,-1331,Niraj S. Shah,Boston,MA,Public
+337,Community Health Systems,CYH,yes,no,58500,46,Tim L. Hingtgen,Franklin,TN,Public
+338,Ally Financial,ALLY,yes,no,11600,1714,Jeffrey J. Brown,Detroit,MI,Public
+339,Regeneron Pharmaceuticals,REGN,yes,no,11851,4338,Leonard S. Schleifer,Tarrytown,NY,Public
+340,Liberty Media Corp,LSXMA,yes,no,7283,1815,Gregory B. Maffei,Englewood,CO,Public
+341,APA,APA,yes,no,2273,3674,John J. Christmann IV,Houston,TX,Public
+342,Qurate Retail,QRTEA,no,no,24683,-2594,David L. Rawlinson II,Englewood,CO,Public
+343,FirstEnergy,FE,yes,no,12335,406,Brian X. Tierney,Akron,OH,Public
+344,Analog Devices,ADI,yes,no,24450,2749,Vincent T. Roche,Wilmington,MA,Public
+345,Ryder System,R,yes,no,48300,867,Robert E. Sanchez,Miami,FL,Public
+346,Avis Budget Group,CAR,yes,no,21500,2764,Joseph A. Ferraro,Parsippany,NJ,Public
+347,Unum Group,UNM,yes,no,10801,1314,Richard P. McKenney,Chattanooga,TN,Public
+348,Newmont,NEM,no,no,14600,-429,Thomas R. Palmer,Denver,CO,Public
+349,VF,VFC,yes,no,27650,1387,Bracken Darrell,Denver,CO,Public
+350,Chesapeake Energy,CHK,yes,no,1200,4936,Domenic J. Dell&#039;Osso Jr.,Oklahoma City,OK,Public
+351,Mohawk Industries,MHK,yes,no,40900,25,Jeffrey S. Lorberbaum,Calhoun,GA,Public
+352,Markel,MKL,no,no,20900,-214,Thomas S. Gayner,Glen Allen,VA,Public
+353,Expedia Group,EXPE,yes,no,16500,352,Peter M. Kern,Seattle,WA,Public
+354,Caesars Entertainment,CZR,no,no,49000,-899,Thomas R. Reeg,Reno,NV,Public
+355,United Rentals,URI,yes,no,24600,2105,Matthew J. Flannery,Stamford,CT,Public
+356,Apollo Global Management,APO,no,no,4258,-3213,Marc Rowan,New York,NY,Public
+357,DaVita Inc,DVA,yes,no,70000,560,Javier J. Rodriguez,Denver,CO,Public
+358,Hess,HES,yes,no,1623,2096,John B. Hess,New York,NY,Public
+359,Fidelity National Financial,FNF,yes,no,21759,1136,Michael J. Nolan,Jacksonville,FL,Public
+360,ConAgra Brands,CAG,yes,no,18000,888,Sean M. Connolly,Chicago,IL,Public
+361,Univar Solutions,,yes,no,9746,545,David C. Jukes,Downers Grove,IL,Private
+362,Auto-Owners Insurance,,no,no,6733,-55,Jamie Whisnant,Lansing,MI,Private
+363,Raymond James Financial,RJF,yes,no,17000,1509,Paul C. Reilly,St. Petersburg,FL,Public
+364,Seaboard,SEB,yes,no,12614,580,Robert L. Steer,Merriam,KS,Public
+365,CF Industries Holdings,CF,yes,no,2659,3346,W. Anthony Will,Deerfield,IL,Public
+366,S&P Global,SPGI,yes,no,39950,3248,Douglas L. Peterson,New York,NY,Public
+367,W.R. Berkley,WRB,yes,no,8186,1381,W. Robert Berkley Jr.,Greenwich,CT,Public
+368,Advance Auto Parts,AAP,yes,no,53500,502,Shane M. O’Kelly,Raleigh,NC,Public
+369,EMCOR Group,EME,yes,no,35500,406,Anthony J. Guzzi,Norwalk,CT,Public
+370,Williams & Jensen,WMB,yes,no,5043,2049,Alan S. Armstrong,Tulsa,OK,Public
+371,Interpublic Group,IPG,yes,no,58400,938,Philippe Krakowsky,New York,NY,Public
+372,TravelCenters of America,,yes,no,17195,164,Jonathan M. Pertchik,Westlake,OH,Private
+373,American Tower,AMT,yes,no,6391,1766,Thomas A. Bartlett,Boston,MA,Public
+374,Molson Coors Beverage,TAP,no,no,16600,-175,Gavin D.K. Hattersley,Chicago,IL,Public
+375,Huntington Ingalls Industries,HII,yes,no,43000,579,Christopher D. Kastner,Newport News,VA,Public
+376,NVR,NVR,yes,no,6550,1726,Eugene J. Bredow,Reston,VA,Public
+377,Eastman Chemical,EMN,yes,no,14500,793,Mark J. Costa,Kingsport,TN,Public
+378,Graybar Electric,,yes,yes,9400,453,Kathleen M. Mazzarella,St. Louis,MO,Private
+379,Insight Enterprises,NSIT,yes,yes,13448,281,Joyce A. Mullen,Chandler,AZ,Public
+380,Hershey,HSY,yes,yes,18970,1645,Michele G. Buck,Hershey,PA,Public
+381,News Corp,NWSA,yes,no,25500,623,Robert J. Thomson,New York,NY,Public
+382,Toll Brothers,TOL,yes,no,5200,1287,Douglas C. Yearley Jr.,Fort Washington,PA,Public
+383,Ulta Beauty,ULTA,yes,no,35750,1242,David C. Kimbell,Bolingbrook,IL,Public
+384,Assurant,AIZ,yes,no,13700,277,Keith W. Demmings,Atlanta,GA,Public
+385,Weyerhaeuser Co,WY,yes,no,9264,1880,Devin W. Stockfish,Seattle,WA,Public
+386,Biogen,BIIB,yes,no,8725,3047,Christopher A. Viehbacher,Cambridge,MA,Public
+387,Dana,DAN,no,no,41800,-242,James K. Kamsickas,Maumee,OH,Public
+388,UGI,UGI,yes,no,10000,1073,Roger Perreault,King of Prussia,PA,Public
+389,Chewy,CHWY,yes,no,19400,49,Sumit Singh,Plantation,FL,Public
+390,Owens & Minor,OMI,yes,no,22500,22,Edward A. Pesicka,Mechanicsville,VA,Public
+391,Quest Diagnostics,DGX,yes,no,44500,946,James E. Davis,Secaucus,NJ,Public
+392,Public Service Enterprise Group,PEG,yes,no,12525,1031,Ralph A. LaRossa,Newark,NJ,Public
+393,eBay Inc,EBAY,no,no,11600,-1269,Jamie Iannone,San Jose,CA,Public
+394,MasTec,MTZ,yes,no,32000,33,José R. Mas,Coral Gables,FL,Public
+395,Owens Corning,OC,yes,no,19000,1241,Brian D. Chambers,Toledo,OH,Public
+396,Celanese Corp,CE,yes,yes,13263,1894,Lori J. Ryerkerk,Irving,TX,Public
+397,Altice USA,ATUS,yes,no,11000,195,Dennis Mathew,Long Island City,NY,Public
+398,Alaska Air Group,ALK,yes,no,24196,58,Benito Minicucci,Seattle,WA,Public
+399,SpartanNash,SPTN,yes,no,14000,35,Tony B. Sarsam,Byron Center,MI,Public
+400,Diamondback Energy,FANG,yes,no,972,4386,Travis D. Stice,Midland,TX,Public
+401,Intercontinental Exchange,ICE,yes,no,8911,1446,Jeffrey C. Sprecher,Atlanta,GA,Public
+402,Darden Restaurants,DRI,yes,no,178956,953,Ricardo Cardenas,Orlando,FL,Public
+403,UFP Industries,UFPI,yes,no,15500,693,Matthew J. Missad,Grand Rapids,MI,Public
+404,WEC Energy Group,WEC,yes,no,7022,1408,Scott J. Lauber,Milwaukee,WI,Public
+405,Yum China Holdings,YUMC,yes,yes,275500,442,Joey Wat,Plano,TX,Public
+406,EnLink Midstream,ENLC,yes,no,1132,361,Jesse Arenivas,Dallas,TX,Public
+407,Continental Resources,CLR,yes,no,1404,4025,Doug Lawler,Oklahoma City,OK,Private
+408,Newell Brands,NWL,yes,no,28000,197,Christopher H. Peterson,Atlanta,GA,Public
+409,Graphic Packaging Holding,GPK,yes,no,24000,522,Michael P. Doss,Atlanta,GA,Public
+410,Olin,OLN,yes,no,7780,1327,Scott M. Sutton,Clayton,MO,Public
+411,Fifth Third Bancorp,FITB,yes,no,19319,2446,Timothy N. Spence,Cincinnati,OH,Public
+412,Thrivent Financial,,yes,yes,3692,1085,Teresa J. Rasmussen,Minneapolis,MN,Private
+413,CenterPoint Energy,CNP,yes,no,8986,1057,David J. Lesar,Houston,TX,Public
+414,Erie Insurance Group,,no,no,5997,-577,Timothy G. NeCastro,Erie,PA,Private
+415,CommScope Holding,COMM,no,no,30000,-1287,Charles L. Treadway,Hickory,NC,Public
+416,KLA,KLAC,yes,no,14140,3322,Richard P. Wallace,Milpitas,CA,Public
+417,JetBlue Airways,JBLU,no,no,18785,-362,Robin Hayes,Long Island City,NY,Public
+418,Motorola Solutions,MSI,yes,no,20000,1363,Gregory Q. Brown,Chicago,IL,Public
+419,Citizens Financial Group,CFG,yes,no,18889,2073,Bruce W. Van Saun,Providence,RI,Public
+420,Coterra Energy,CTRA,yes,no,1225,4065,Thomas E. Jorden,Houston,TX,Public
+421,Avery Dennison,AVY,yes,no,36000,757,Deon Stander,Mentor,OH,Public
+422,Pvh Corp,PVH,yes,no,25000,200,Stefan Larsson,New York,NY,Public
+423,GXO Logistics,GXO,yes,no,112000,197,Malcolm Wilson,Greenwich,CT,Public
+424,Polaris,PII,yes,no,16200,447,Michael T. Speetzen,Medina,MN,Public
+425,Global Payments,GPN,yes,no,25000,112,Cameron M. Bready,Atlanta,GA,Public
+426,Arconic,,no,no,11550,-182,Chris Ayers,Pittsburgh,PA,Private
+427,Vertex Pharmaceuticals,VRTX,yes,yes,4800,3322,Reshma Kewalramani,Boston,MA,Public
+428,Commercial Metals Co,CMC,yes,no,12483,1217,Peter R. Matt,Irving,TX,Public
+429,Autoliv,ALV,yes,no,65300,423,Mikael Bratt,Auburn Hills,MI,Public
+430,Constellation Brands,STZ,no,no,10000,-40,William A. Newlands,Victor,NY,Public
+431,Hilton Worldwide,HLT,yes,no,159000,1255,Christopher J. Nassetta,McLean,VA,Public
+432,Foot Locker,FL,yes,yes,31040,342,Mary N. Dillon,New York,NY,Public
+433,Huntsman,HUN,yes,no,7000,460,Peter R. Huntsman,The Woodlands,TX,Public
+434,Burlington Stores,BURL,yes,no,38018,230,Michael B. O?Sullivan,Burlington,NJ,Public
+435,Hertz Global Holdings,HTZ,yes,no,25000,2059,Stephen M. Scherr,Estero,FL,Public
+436,Masco,MAS,yes,no,19000,844,Keith J. Allman,Livonia,MI,Public
+437,Williams-Sonoma,WSM,yes,yes,16800,1128,Laura J. Alber,San Francisco,CA,Public
+438,Chipotle Mexican Grill,CMG,yes,no,104958,899,Brian R. Niccol,Newport Beach,CA,Public
+439,M&T Bank,MTB,yes,no,22509,1992,René F. Jones,Buffalo,NY,Public
+440,LPL Financial Holdings,LPLA,yes,no,6415,846,Dan H. Arnold,San Diego,CA,Public
+441,CMS Energy,CMS,yes,no,8817,837,Garrick J. Rochow,Jackson,MI,Public
+442,Campbell Soup,CPB,yes,no,14700,757,Mark A. Clouse,Camden,NJ,Public
+443,Arthur J. Gallagher,AJG,yes,no,43640,1114,J. Patrick Gallagher Jr.,Rolling Meadows,IL,Public
+444,Blackstone Group,BX,yes,no,4695,1748,Stephen A. Schwarzman,New York,NY,Public
+445,Dover,DOV,yes,no,25000,1065,Richard J. Tobin,Downers Grove,IL,Public
+446,ODP,ODP,yes,no,25000,166,Gerry P. Smith,Boca Raton,FL,Public
+447,Packaging Corp. of America,PKG,yes,no,15100,1030,Mark W. Kowlzan,Lake Forest,IL,Public
+448,Brighthouse Financial,BHF,yes,no,1500,5,Eric T. Steigerwalt,Charlotte,NC,Public
+449,Beacon Roofing Supply,BECN,yes,no,7478,458,Julian G. Francis,Herndon,VA,Public
+450,Airbnb Inc,ABNB,yes,no,6811,1893,Brian Chesky,San Francisco,CA,Public
+451,Boise Cascade,BCC,yes,no,6840,858,Nathan R. Jorgensen,Boise,ID,Public
+452,Booz Allen Hamilton,BAH,yes,no,29300,467,Horacio D. Rozanski,McLean,VA,Public
+453,Westinghouse Air Brake Technologies,WAB,yes,no,27000,633,Rafael O. Santana,Pittsburgh,PA,Public
+454,ON Semiconductor,ON,yes,no,31055,1902,Hassane S. El-Khoury,Scottsdale,AZ,Public
+455,Oshkosh Corp,OSK,yes,no,15000,174,John C. Pfeifer,Oshkosh,WI,Public
+456,Franklin Resources,BEN,yes,yes,9800,1292,Jennifer M. Johnson,San Mateo,CA,Public
+457,Taylor Morrison Home,TMHC,yes,yes,3000,1053,Sheryl D. Palmer,Scottsdale,AZ,Public
+458,A-Mark Precious Metals,AMRK,yes,no,381,133,Gregory N. Roberts,El Segundo,CA,Public
+459,KeyCorp,KEY,yes,no,17660,1917,Christopher M. Gorman,Cleveland,OH,Public
+460,ARKO,ARKO,yes,no,12223,72,Arie Kotler,Richmond,VA,Public
+461,Lululemon athletica,LULU,yes,no,34000,855,Calvin McDonald,Sumner,WA,Public
+462,Republic Services,ORI,yes,no,9500,686,Craig R. Smiddy,Chicago,IL,Public
+463,Zoetis,ZTS,yes,yes,13800,2114,Kristin C. Peck,Parsippany,NJ,Public
+464,Marathon Oil,MRO,yes,no,1570,3612,Lee M. Tillman,Houston,TX,Public
+465,J.M. Smucker,SJM,yes,no,6700,632,Mark T. Smucker,Orrville,OH,Public
+466,Huntington Bancshares,HBAN,yes,no,19920,2238,Stephen D. Steinour,Columbus,OH,Public
+467,NGL Energy Partners,NGL,no,no,842,-185,H. Michael Krimbill,Tulsa,OK,Public
+468,Ingredion,INGR,yes,no,11700,492,James P. Zallie,Westchester,IL,Public
+469,Fortune Brands Innovations,FBIN,yes,no,11200,687,Nicholas I. Fink,Deerfield,IL,Public
+470,PPL,PPL,yes,no,6527,756,Vincent Sorgi,Allentown,PA,Public
+471,Sanmina,SANM,yes,no,36000,256,Jure Sola,San Jose,CA,Public
+472,Bed Bath & Beyond,BBBYQ,no,yes,32000,-560,Sue E. Gove,Union,NJ,Public
+473,Cintas,CTAS,yes,no,43000,1236,Todd M. Schneider,Cincinnati,OH,Public
+474,NCR,NCR,yes,no,35000,60,Michael D. Hayford,Atlanta,GA,Public
+475,ABM Industries,ABM,yes,no,127000,230,Scott B. Salmirs,New York,NY,Public
+476,Rockwell Automation,ROK,yes,no,26000,932,Blake D. Moret,Milwaukee,WI,Public
+477,Northern Trust,NTRS,yes,no,23600,1336,Michael G. O&#039;Grady,Chicago,IL,Public
+478,XPO,XPO,yes,no,39500,666,Mario A. Harik,Greenwich,CT,Public
+479,Science Applications International,SAIC,yes,yes,25000,300,Nazzic S. Keene,Reston,VA,Public
+480,Ameren,AEE,yes,no,9244,1074,Martin J. Lyons Jr.,St. Louis,MO,Public
+481,First American Financial,FAF,yes,no,21153,263,Kenneth D. DeGiorgio,Santa Ana,CA,Public
+482,Bath & Body Works,BBWI,yes,yes,33000,800,Gina R. Boswell,Columbus,OH,Public
+483,Regions Financial,RF,yes,no,20073,2245,John M. Turner Jr.,Birmingham,AL,Public
+484,Activision Blizzard,ATVI,yes,no,13000,1513,Robert A. Kotick,Santa Monica,CA,Public
+485,Avantor,AVTR,yes,no,14500,687,Michael Stubblefield,Radnor,PA,Public
+486,Genworth Financial,GNW,yes,no,2500,609,Thomas J. McInerney,Richmond,VA,Public
+487,EQT,EQT,yes,no,744,1771,Toby Z. Rice,Pittsburgh,PA,Public
+488,Skechers U.S.A.,SKX,yes,no,11450,373,Robert Greenberg,Manhattan Beach,CA,Public
+489,Landstar System,LSTR,yes,no,1449,431,James B. Gattoni,Jacksonville,FL,Public
+490,Knight-Swift Transportation Holdings,KNX,yes,no,28300,771,David A. Jackson,Phoenix,AZ,Public
+491,SVB Financial Group,SIVBQ,yes,no,8553,1672,William Kosturos,Santa Clara,CA,Public
+492,Par Pacific Holdings,PARR,yes,no,1397,364,William C. Pate,Houston,TX,Public
+493,Albemarle,ALB,yes,no,7400,2690,J. Kent Masters,Charlotte,NC,Public
+494,Vulcan Materials,VMC,yes,no,11974,576,J. Thomas Hill,Birmingham,AL,Public
+495,Watsco,WSO,yes,no,7238,601,Albert H. Nahmad,Miami,FL,Public
+496,KKR & Co,KKR,no,no,4150,-841,Joseph Y. Bae/Scott C. Nuttall,New York,NY,Public
+497,Equinix,EQIX,yes,no,12097,704,Charles J. Meyers,Redwood City,CA,Public
+498,Sonoco Products,SON,yes,no,22000,466,R. Howard Coker,Hartsville,SC,Public
+499,ServiceNow,NOW,yes,no,20433,325,William R. McDermott,Santa Clara,CA,Public
+500,Robert Half,RHI,yes,no,16300,658,M. Keith Waddell,Menlo Park,CA,Public
