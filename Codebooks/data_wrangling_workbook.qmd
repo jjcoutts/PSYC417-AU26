@@ -1,0 +1,316 @@
+---
+title: "Data Wrangling Workbook"
+author: "PSYC417"
+format: html
+editor: visual
+---
+
+# Data Wrangling Workbook
+
+## Recap
+
+We just learned how to bring packages others have created into R. We first must *download* the package using the **install.packages()** command. Then, each time we use R and want to use that package, we must load the package using the **library()** command.
+
+## Data Wrangling, "tidy data", and the tidyverse
+
+Often times in data science, we must wrangle data into some form we can use. We may have data in multiple places, with many missing values, with more rows than we need, or some other issue that requires us to calibrate before we begin analyses. In base R, we already know how to subset, merge, and index values in simple ways. However, we talked about how this can be unruly, requiring many commas, dollar signs, and lines of code when what we need to do to the data is complex.
+
+This is where *the tidyverse* comes in. The *tidyverse* is a series of packages created by Hadley Wickham, one of the most prolific data scientists *ever*. He is currently the chief data scientist at Posit (i.e., RStudio). Hadley is a proponent of *tidy data*, or optimally cleaned data with minimal code required. He is also, among other things, the creator of several frameworks (such as Split-Apply-Combine) that we're going to apply today!
+
+The packages from the tidyverse that we are going to use today are primarily **tidyr** and **dplyr**, though we may refer to others like **readr** and we will soon use others like **ggplot2** (the best data visualization library on the market).
+
+## Installing and Loading the Package
+
+The tidyverse is a package that is really just a series of packages. By installing and loading it in, you will be loading in many packages at once. This will be important when it comes time to use functions from packages in the tidyverse.
+
+**Example:** We can use functions from the dplyr package that is loaded in when we load in the tidyverse. But we won't be using the syntax **tidyverse::function_name()** syntax when we do that. Instead, we'll refer to the actual package the function comes from, like **dplyr::function_name()**.
+
+```{r}
+# Recall: You would need to comment out (using #) the install.packages("tidyverse") line of code before you render You only need to run the install.packages("tidyverse") line of code once ever! This is already installed for us on Jupyter.
+# install.packages("tidyverse")
+
+# Recall: You must run the library("tidyverse") each time you open R.
+library("tidyverse")
+```
+
+## Our Data for Today
+
+We are going to use data from two different data sets today: one detailing campaign contributions from various companies during the 2023-2024 election cycle (**campaign_contributions.csv**) and one detailing features of the Fortune500 companies circa 2023-2024 (**fortune_500.csv**).
+
+Since these data sets are in the same folder as this file, we technically don't need the file path. However, practice loading those in by finding the file path anyway.
+
+```{r}
+# load in both data sets
+campaign <- read.csv(file = "campaign_contributions.csv")
+fortune500 <- read.csv(file = "fortune_500.csv")
+
+# join the data
+test = dplyr::inner_join(contributions_clean, fortune500, by = c("contributor" = "company"))
+```
+
+## Data Manipulation
+
+### An Important Note
+
+In the tidyverse, we will be using a pipe operator (%\>%) to chain together many operations on the data in a row. This will function much like a grammatical "do this and then...". You will need to be sure to *save this to an object* or else you will just be performing calculations and saving them nowhere.
+
+```{r}
+# This doesn't go into your global environment
+fortune500 %>%
+  filter(rank < 6) # show the top 5 companies
+
+# Be sure to save it to a data frame when you want to do that 
+top5 <- fortune500 %>%
+  filter(rank < 6)
+```
+
+### dplyr::filter() - 1 condition
+
+Often times, we want to take a subset of the data, like we did above with the top 5 companies.
+
+Let's try this in base R with the campaign contributions data set by seeing the data for donors that lean conservative.
+
+```{r}
+# subset the data in base R
+```
+
+Then do it in the tidyverse using **dplyr::filter()**.
+
+```{r}
+# in dplyr
+
+
+```
+
+### dplyr::filter() - 2 conditions
+
+We can do this for multiple conditions in base R. Try subsetting donors that lean liberal and spend more than \$10,000.
+
+```{r}
+# subset for multiple conditions in base R
+
+```
+
+Now do it in the tidyverse. (Note: We could do as many conditions as we want like in base R!)
+
+```{r}
+# filter for multiple conditions in tidyverse
+```
+
+### Filtering out Missing Data
+
+We can filter out missing values in specific columns by using something like: **dplyr::filter(!is.na(lean))** which removes all rows with missing values in the lean column. This would do nothing here since the data are complete. If we wanted to remove rows with missing data in any column, we could use **dplyr::filter(complete.cases(.))**.
+
+### dplyr::slice()
+
+We know that sometimes, we want to index by numeric position rather than a specific value. We may want...
+
+-   Rows 50-100
+
+-   The first 10 or last 10 rows
+
+-   A number of random rows
+
+-   ...and so on.
+
+The **dplyr::slice()** commands will do this for us. Note: In each of these commands, you can use n = \# to get that specific number of rows, prop = \[value between 0 and 1\] to get a specified proportion of rows.
+
+-   **dplyr::slice_head()** will give us the first number of rows.
+
+-   **dplyr::slice_tail()** will give us the last number of rows.
+
+-   **dplyr::slice()** will give us rows \_ through \_.
+
+-   **dplyr::slice_sample()** will give us a random number of rows.
+
+-   **dplyr::slice_min()** will give us the smallest valued number of rows in a column.
+
+-   **dplyr::slice_max()** will give us the largest valued number of rows in a column.
+
+```{r}
+# give me the 3 smallest donors overall 
+
+# give me the last 5 rows of the dataset
+
+# give me the 10th, 50th, and 100th rows
+
+# give me the first 25 percent of the dataset 
+
+# give me the biggest 100 rows of donations to Democrats
+
+```
+
+### dplyr::select()
+
+With specific rows filtered and/or sliced, we may only want certain columns to carry forward in our analysis. **dplyr::select()** will help.
+
+In base R, create a data frame with only the contributor, their total donation, how they lean politically, and what industry they're in.
+
+```{r}
+
+```
+
+Now do that in the tidyverse.
+
+```{r}
+
+```
+
+### dplyr::select() - Removing Columns
+
+We can also use select to remove columns we don't want instead. You can use !c(col1, col2, ...) to remove as many columns as you want by name.
+
+```{r}
+campaign %>% 
+  dplyr::select(!c(lean, industry, total, to_dems, to_repubs))
+```
+
+### dplyr::select - Other Uses
+
+Select allows us to do very powerful things:
+
+-   **dplyr::starts_with()** allows us to select columns that start with a value (e.g., letter) or series of values (e.g., letters).
+
+-   **dplyr::ends_with()** allows us to select columns that end with a value (e.g., letter) or series of values (e.g., letters).
+
+-   **dplyr::contains()** allows us to select columns that contain a certain value (e.g., letter) or series of values (e.g., letters).
+
+-   **dplyr::everything()** allows us to return the remainder of the variables in the dataset after selecting a few if we want to reorder the dataset, for example.
+
+```{r}
+# grab columns that start with t
+campaign %>%
+  dplyr::select(dplyr::starts_with("t"))
+
+# grab columns that end with s
+campaign %>%  
+  dplyr::select(dplyr::ends_with("s"))
+
+# grab columns that contain "con"
+campaign %>%
+  dplyr::select(dplyr::contains("con"))
+
+# reorder columns
+campaign %>% 
+  dplyr::select(total, lean, dplyr::everything())
+```
+
+### dplyr::mutate() 
+
+With our remaining columns, we may need to perform specific transformations on the data (such as calculate which percentage of donations went to a particular group). We can do this with **dplyr::mutate()**!
+
+In base R, create a column called "perc_demns" that is the percent of their total donations given to Democrats. Change the total donations to be in millions of dollars.
+
+```{r}
+# I want to add a variable called 'combined' that adds the character's height and mass together (height + mass)
+
+```
+
+Now do this in the tidyverse.
+
+```{r}
+
+```
+
+### dplyr::arrange()
+
+Once everything is together, we may want to arrange the data based on a column's values.
+
+Sort the data frame in base R by the largest donors first.
+
+```{r}
+
+```
+
+Now do it in the tidyverse (but do it for smallest donors first).
+
+```{r}
+
+```
+
+### dplyr::summarise()
+
+The final step of most workflows is to summarise the data, such as by creating average donations to liberal or conservative groups.
+
+Calculate the mean of donations to Democrats and standard deviation of donations to Republicans in base R.
+
+```{r}
+
+```
+
+Now do it using **dplyr::summarise()**.
+
+```{r}
+
+```
+
+### Grouped data frames using dplyr::group_by()
+
+The above summaries are quite simple. We often times want more intricate summaries, such as summarizing by average donations per industry.
+
+Calculate the average donations to Democrats and to Republicans in base R.
+
+```{r}
+
+```
+
+Now do it in the tidyverse.
+
+```{r}
+
+```
+
+## Joining Data Sets
+
+We often times want to join data sets by shared values, such as students in majors or patients with conditions. We learned a simple form of this in base R with merge(). The tidyverse gives us many more options, however...
+
+-   **dplyr::left_join()** will join two datasets by retaining every row from the left-hand-side and retaining the matching rows from the right-hand-side. (Which is left and right is arbitrary.)
+
+-   **dplyr::right_join()** will do the same for the right-hand-side. (Which is right and left is arbitrary.)
+
+-   **dplyr::inner_join()** will only retain the matching rows for a specific match key (i.e., column).
+
+-   **dplyr::full_join()** will retain every row from both data frames.
+
+Apply all of these to the campaign and fortune500 data frames and observe the differences. Calculate the average total donations for a reference point.
+
+```{r}
+
+```
+
+## Data Restructuring
+
+Sometimes we need data to be in a different form. For example, if we have multiple observations of the same people, we may want each person to have multiple rows. This is called **long form data**. However, some analyses require only one row per person. That means each column with have multiple observations of the same variable at different time points. This is called **wide form data**.
+
+We can use the **tidyr::pivot_long()** and **tidyr::pivot_wider()** functions to restructure data into the form we want. Examples using the built-in Seatbelts data and ChickWeight data are below.
+
+### tidyr::pivot_longer() using the Seatbelts data
+
+```{r}
+# Let's take a look at our dataframe
+Seatbelts <- as.data.frame(Seatbelts)
+
+# I want the data to have 1 column that specifies location in the car (front and rear) called "Location" and 1 column that indicates the number of deaths for passengers in that location called "Deaths"
+Seatbelts<-Seatbelts%>%
+  tidyr::pivot_longer(front:rear, names_to = "Location", values_to = "Deaths")
+# view the result
+Seatbelts
+```
+
+### tidyr::pivot_wider() using the ChickWeight data
+
+```{r}
+# Let's take a look at our dataframe
+ChickWeight <- as.data.frame(ChickWeight)
+
+# I want the dataframe to show one row per chick where there are separate columns for each day
+ChickWeight<-ChickWeight %>%
+  tidyr::pivot_wider(names_from = "Time", values_from = "weight")
+
+# view the result
+ChickWeight
+```
+
+# End of Script
+
+That's all for now!
