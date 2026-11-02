@@ -1,0 +1,856 @@
+---
+title: "Data Visualization Workbook"
+author: "PSYC417"
+format: html
+editor: visual
+---
+
+# Data Visualization Workbook
+
+## Recap
+
+We just learned how to wrangle data in the tidyverse. (And more specifically, **tidyr** and **dplyr**. We learned numerous commands, including:
+
+1.  Grabbing rows with specific values (dplyr::filter()).
+2.  Grabbing rows by position or randomly (e.g,. dplyr::slice()).
+3.  Grouping data based on one or more variables (dplyr::group_by).
+4.  Ordering data by one or more variables (dplyr::arrange()).
+5.  Summarizing data with descriptives (dplyr::summarise()).
+6.  Joining data sources based on shared information (e.g., dplyr::left_join()).
+7.  Changing dataset structure (using tidyr::pivot_longer() or tidyr::pivot_wider()).
+
+Data wrangling is an important part of the data science workflow, which can be summarized as:
+
+1.  Goal setting: project scoping, hypotheses, end product outlines, etc.
+2.  Data acquisition: participant collection, web scraping, databases, etc.
+3.  Data curation: cleaning, joining, and preparing data for analysis.
+4.  Visualization: exploratory plotting or plots for analyses.
+5.  Analyses: fitting models, interpreting results, exploratory analyses, etc.
+6.  Communication: writing a research paper or report for stakeholders.
+
+## Data Visualization
+
+Data visualization is a way to make data more interesting, make patterns clearer, and incorporate layers of information. Data visualization can be one of the best parts of an entire project. Good visuals help us tell stories and make the reader more engaged in our work. However, bad visuals can ruin a project. Whether the "bad" is design or deception, you should not be creating sloppy visuals that misrepresent a relationship. In particular, you should make sure your visuals have (or if you're a consumer, be sure to look for):
+
+1.  Axes labels and reference groups/context.
+2.  Error bars or confidence bands, if applicable.
+3.  Consistent scale.
+4.  Readability.
+5.  Detailed descriptions of acronyms/initialisms.
+6.  Color/shading/shapes with meaning.
+7.  Simplicity (i.e., avoid 3D elements and "chart junk").
+
+## Visualizations in Base R
+
+There are many types of plots out there: histograms, density pots, bar plots, pie charts, boxplots, scatterplots, line plots, and **many** more. Base R allows us to create many of these. Let's practice.
+
+```{r}
+# the fake dataset we'll be using to showcase some plots
+df = data.frame(Scores = rnorm(20), Group = c(rep("A",5),rep("B",5),rep("C",5),rep("D",5)),Time = c(1:20), Prep = rnorm(20))
+```
+
+### Bar graph
+
+```{r}
+# create a bar graph
+barplot(table(df$Group),
+  main = "Barplot", # change plot title
+  xlab = "Time Points", # change x-axis title
+  ylab = "Frequency", # change y-axis title
+  col = "seagreen") # change color of bars
+```
+
+### Histograms
+
+```{r}
+# create a histogram
+hist(df$Scores, 
+     main = "Histogram", # title the plot
+     xlab = "Test Scores", # label the x-axis
+     col = "gold", # change the interior bar color
+     border = "black") # change the bar outline
+```
+
+### Density plots
+
+```{r}
+# create a density plot
+plot(density(df$Scores), 
+     main = "Density Plot", # title the plot
+     xlab = "Test Scores", # label the x-axis
+     lwd = 2, # change the linewidth
+     col = "pink") # change the color of the line
+```
+
+### Boxplots
+
+```{r}
+# create a boxplot
+# with one variable
+boxplot(df$Scores, 
+        main = "Boxplot", 
+        ylab = "Test Scores",
+        col = "lightblue4")
+# with two variables
+boxplot(df$Scores ~ factor(df$Group),
+        main = "Boxplot by Group",
+        ylab = "Test Scores",
+        xlab = "Group",
+        col = "orange")
+```
+
+### Line plots
+
+```{r}
+# create a line plot
+plot(df$Time, df$Scores,
+     type = "l", # ensure it's a line
+     main = "Line Plot", # change title
+     xlab = "Time Point", # change x-axis label
+     ylab = "Test Scores", # change y-axis label
+     lty = "dashed", # change linetype to dashed
+     lwd = 2, # change thickness of line
+     col = "navy") # change color of line
+```
+
+### Scatterplots
+
+```{r}
+# create a scatterplot
+plot(df$Prep, df$Scores,
+     main = "Scatterplot",
+     xlab = "Preparation",
+     ylab = "Test Scores",
+     col = "firebrick3")
+```
+
+Although the above plots are relatively easy to create and fine on their own, they are nowhere near publication quality and getting them there would take substantial effort.
+
+Additionally, some modern plots (e.g., violin plots) don't even exist in base R!
+
+The tidyverse is here to save us once again.
+
+## ggplot2
+
+ggplot2 (grammar of graphics) is a subset of the tidyverse that is meant to make creating plots a seamless process with a nice, sentence-like syntax.
+
+It is one of the most popular visualization libraries in *any* language. Knowing it will be a huge boost on the job or graduate school market.
+
+ggplot has a nice, predictable syntax structure.
+
+ggplot(df, aes(variables you will plot)) +
+
+geom_graphtype(specifications) +
+
+graph attributes \[optional\] + ...
+
+where the df is the data frame you're working with, aes() is an aesthetic wrapper where you place the variables you will be working with, + works similar to a pipe where you mean "add the next line below", geom_graphtype is actually a graph you want (e.g., geom_histogram()) with features you modify, and graph attributes are things like axis labels, themes, text size, and more.
+
+Let's load in ggplot2.
+
+```{r}
+# remember to install it if you haven't already
+library(ggplot2)
+# we will also need a few other packages
+library(dplyr) # for data wrangling
+library(jtools) # for even better plots
+```
+
+## Our Data for Today
+
+We are going to use data from two different data sets today: one detailing stop and frisk cases in New York from their Stop, Question, and Frisk program (**nyc_frisk.csv**), and one detailing the demographic information of each suspect in these stops (**nyc_demo.csv**).
+
+These datasets are in the data folder on Jupyter. Find the file path and read them in.
+
+```{r}
+# load in both data sets
+nyc_frisk = read.csv()
+nyc_demo = read.csv()
+```
+
+We are going to need the data joined. Explore the data: Which column would be good for this? Which join type should we use?
+
+```{r}
+# explore the datasets first
+
+# what columns to join ? 
+
+# join the data
+
+```
+
+A mini codebook for our variables is below:
+
+-   **ID:** The ID of the incident.
+
+-   **stop_date:** The date the stop happened.
+
+-   **stop_time: T**he time the stop happened.
+
+-   **month:** The month the stop happened.
+
+-   **day:** The day of the week the stop happened.
+
+-   **suspected_crime:** The suspected crime that caused the stop.
+
+-   **stop_length:** The length of the stop in minutes.
+
+-   **arrest:** Whether an arrest happened.
+
+-   **weapon_found:** Whether the police found a weapon on the suspect.
+
+-   **stop_location:** The location of the stop (e.g., Queen, Brooklyn),
+
+-   **demeanor:** The police's evaluation of the suspect's demeanor.
+
+-   suspect demographics are self explanatory.
+
+## Visualizing a single variable
+
+The simplest form of a visualization is to plot the distribution of a single variable. The level of measurement dictates what we can create.
+
+Let's find out how intrusive these stops are for civilians by looking the stop_length.
+
+There are many appropriate plots for a numeric variable. We will focus on density plots, histograms, and boxplots.
+
+### Density plots (geom_density())
+
+Density plots several optional mods:
+
+-   **size =** (to change the thickness of the line)
+
+-   **linetype =** or **lty =** (to change the type of the line. There are multiple names for this one, including "dashed", "dotted", etc.)
+
+-   **color =** (to change the color of the line)
+
+-   **fill =** (to change the color UNDER the line)
+
+-   **alpha =** (to change the transparency of the colors)
+
+```{r}
+ggplot(nyc_stops, aes(x = stop_length)) + 
+    geom_density()
+
+# there are some major outliers here. We need to filter for stops less than 50 miuntes long. 
+
+nyc_stops <- nyc_stops %>%  
+  dplyr::filter(stop_length < 50)
+
+ggplot(nyc_stops, aes(x = stop_length)) +   
+  geom_density()
+```
+
+The plot looks much better after filtering.
+
+Change the line thickness
+
+```{r}
+# change the line thickness to 2 
+ggplot(nyc_stops, aes(x = stop_length)) +   
+  geom_density(size = ...)
+
+# change the line thickness to 4
+ggplot(nyc_stops, aes(x = stop_length)) +   
+  geom_density(size = ...)
+```
+
+Change the linetype ([linetype]{.underline} or [lty]{.underline})
+
+```{r}
+# change the linetype to dashed with lty
+ggplot(nyc_stops, aes(x = stop_length)) +   
+  geom_density(lty = ...)
+
+# change the linetype to dotted with linetype
+ggplot(nyc_stops, aes(x = stop_length)) +   
+  geom_density(linetype = ...)
+```
+
+Change the line color ([color]{.underline})
+
+```{r}
+# change the color of the line to red
+ggplot(nyc_stops, aes(x = stop_length)) +   
+  geom_density(color = ...) # change color of line
+
+# change the color of the line to "F2B7F8"
+ggplot(nyc_stops, aes(x = stop_length)) +   
+  geom_density(color = ...) # change color of line
+```
+
+Change the color under the curve ([fill]{.underline})
+
+```{r}
+# change the color under the plot to #445566
+ggplot(nyc_stops, aes(x = stop_length)) +   
+  geom_density(fill = ...)
+```
+
+Change the transparency of the color ([alpha]{.underline})
+
+```{r}
+# change the transparency of the color to .4 using alpha 
+ggplot(nyc_stops, aes(x = stop_length)) +   
+  geom_density(fill = "#445566",
+               alpha = ...)
+```
+
+Change the axes labels and plot title
+
+```{r}
+# add axis labels and a plot title 
+ggplot(nyc_stops, aes(x = stop_length)) +   
+  geom_density() + 
+  labs(x = ..., 
+       y = ..., 
+       title = ...)
+
+# do a bunch of the modifications above at the same time 
+ggplot(nyc_stops, aes(x = stop_length)) +   
+  geom_density(size = 2, # change thickness of the line
+               color = "maroon", # change outline color
+               fill ="salmon", # change color under curve
+               alpha = .5, # change transparency
+               lty = "dashed" # change linetype
+               ) + 
+  labs(x = "Stop Length (Minutes)",
+       y = "Count")
+```
+
+### Histograms (geom_histogram())
+
+We're going to create a histogram for the stop_length variable. Common optional specifications for histograms include...
+
+-   **linewidth =** (to change the thickness of the outline)
+
+-   **linetype =** or **lty =** (to change the type of the bar outline.
+
+-   **color =** (to change the color of the bar outline)
+
+-   **fill =** (to change the color INSIDE the bars)
+
+-   **alpha =** (to change the transparency of the colors)
+
+-   **binwidth =** \# (to change the scale/width of the bins, e.g., 10 will give a range of 10 numbers of each bin)
+
+-   **bins =** \# (to change the number of bins)
+
+```{r}
+# create a histogram
+ggplot(nyc_stops, aes(x = stop_length)) + 
+  geom_histogram()
+
+# change the linewidth to .8, color to black, fill to lightgray
+ggplot(nyc_stops, aes(x = stop_length)) + 
+  geom_histogram(linewidth = .8, # change thickness of bin outline
+                 color = "black", # change outline color of bins
+                 fill = "lightgray" # change interior color of bins
+                 )
+```
+
+Adjust bins different ways ([binwidth]{.underline} or [bins]{.underline})
+
+```{r}
+# change the binwidth to 25
+ggplot(nyc_stops, aes(x = stop_length)) + 
+  geom_histogram(linewidth = .8, # change thickness of bin outline
+                 color = "black", # change outline color of bins
+                 fill = "lightgray", # change interior color of bins
+                 binwidth = ... # change number of bins based on inclusivity
+                 )
+
+# change the number of bins to 10 
+ggplot(nyc_stops, aes(x = stop_length)) + 
+  geom_histogram(linewidth = .8, # change thickness of bin outline
+                 color = "black", # change outline color of bins
+                 fill = "lightgray", # change interior color of bins
+                 bins = ... # change number of bins 
+                 )
+```
+
+Change the plot theme to [theme_apa()]{.underline} from **jtools**
+
+```{r}
+# change the theme to theme_apa() from jtools
+ggplot(nyc_stops, aes(x = stop_length)) + 
+  geom_histogram(linewidth = .8, # change outline thickness of bins
+                 color = "black", # change outline of bins
+                 fill = "lightgray", # change color of bins
+                 bins = 10 # change number of bins
+                 ) +
+  jtools::...
+```
+
+Add vertical and horizontal lines ([geom_vline()]{.underline} and [geom_hline()]{.underline})
+
+```{r}
+# we can add vertical or horizontal lines using geom_vline(aes(xintercept = ...)) or geom_hline(aes(yintercept = ...)), respectively 
+ggplot(nyc_stops, aes(x = stop_length)) + 
+  geom_histogram() + 
+  geom_vline(aes(xintercept = mean(stop_length)),
+             color = "red", # change line to red
+             linetype = "dotdash" # change line to dotdash
+             )
+```
+
+Let's put everything we've done so far together
+
+```{r}
+# a complicated plot 
+ggplot(nyc_stops, aes(x = stop_length, y = ..density..)) + 
+  geom_histogram(color = "black", # add a histogram 
+                 fill = "coral", # change color of the bins
+                 alpha = .5, # make points transparent
+                 bins = 15, # change the number of bins
+                 linewidth = 1 # change bin lines
+                 ) +
+  geom_vline(aes(xintercept = mean(stop_length)), # add a mean line
+             color = "coral", # change color of line
+             linetype = "dotdash", # change line to dotdash
+             size = 2 # change line thickness
+             ) + 
+  geom_vline(aes(xintercept = median(stop_length)), # add a median line
+              color = "navy", # change color of line
+              linetype = "dotted", # change line to dotted
+              size = 2 # change line thickness
+              ) + 
+  geom_density(color = "black",# add density plot
+               fill = "navy", # change color under curve
+               alpha = .4 # make transparent
+               ) + 
+  jtools::theme_apa() + # make APA format
+  scale_y_continuous(expand = expansion(mult = c(0, 0.05))) + # remove space between plot and x-axis
+  labs(x = "Stop Length (Mintues)", # adjust axex labels and plot title
+       y = "Density",
+       title = "Histogram/Density Plot of Stops") + 
+   theme(plot.title = element_text(hjust = 0.5)) # center the plot title
+```
+
+### Boxplots (geom_boxplot())
+
+Boxplots are another way to visualize a numeric variable's distribution. Some mods for boxplots are... - **linewidth =** (to change the thickness of the outline)
+
+-   **linetype =** or **lty =** (to change the type of all lines.
+
+-   **color =** (to change the color of all lines and points)
+
+-   **fill =** (to change the color INSIDE the bars)
+
+-   **alpha =** (to change the transparency of the colors)
+
+-   **outlier.size =** \# (to change the size of outlier points)
+
+-   **outlier.color =** \# (to change the color of outlier points)
+
+-   many other modifications to outliers
+
+-   **varwidth =** \# (for multiple boxplots, scale size of box to sqrt(n))
+
+```{r}
+ggplot(nyc_stops, aes(x = stop_length)) +   
+  geom_boxplot(color = "maroon", # change outlines and points
+               fill = "pink" # change interior color
+               )+  
+  jtools::theme_apa()
+```
+
+There is not an objective answer to which is better between boxplots, density plots, and histograms. It's not the same across problems or people. You should create all of them and decide which one tells the story better. People will choose different plots. Data science is one part science and one part art (an inexact science), so all that matters is you can justify your choice.
+
+### Bar graphs (geom_bar() - categorical variables)
+
+Categorical variables contain different information. Our techniques we've learned so far will not work.
+
+Let's find out which days stops are more likely to happen on by looking at the distribution of day.
+
+```{r}
+
+
+```
+
+The axes are out of order. Maybe we should fix that...
+
+```{r}
+# make day and month a factor
+nyc_stops <- nyc_stops %>% 
+  dplyr::mutate(
+    month = factor(month, levels = c("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")),
+    day = ...
+  ) 
+
+# recreate the plot
+ggplot(nyc_stops, aes(x = day)) + 
+  geom_bar()
+```
+
+This is fine, but it still has room for improvement. The background is distracting, the bars are very dull, the x-axis text will bleed together if the figure is small enough... We can use some features to our advantage:
+
+-   Rotate the x-axis text using + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+-   Center the plot title by adding plot.title = element_text(hjust = 0.5) to the theme() function.
+
+-   Removing the space between the plot start and axis by adding + scale_y_continuous(expand = expansion(mult = c(0, 0.05)))
+
+-   Removing the space between the plot start and axis by adding + scale_x_discrete(labels = c("ACTUAL_VALUE" = "PLOT_VALUE", ... for each value on the x-axis))
+
+There are many other features we can modify in theme, but in this class, we're only going to cover the essential ones.
+
+```{r}
+# create the final bar graph
+ggplot(nyc_stops, aes(x = day)) +   
+  geom_bar(color = "black", 
+           fill = "#445566"
+           ) + 
+  labs(x="Day of Week", 
+       y="Count", 
+       title="Stops by Day") + # change the labels
+  ... # make apa format
+  ... # angle the x-axis text
+    ... + # center the title
+  ... # remove the space between the plot and the x-axis
+```
+
+Now do the same by month.
+
+```{r}
+
+```
+
+## Visualizing multiple variables
+
+Rarely in data science are we interested in a single variable. We are interested in associations between variables. (e.g., Does one cause another?)
+
+For example... - Is stop length impacted by whether they found a weapon? - Do stops get more frequent throughout the year? - Are older (or younger) suspects more likely to get stopped?
+
+### Scatterplots (geom_point())
+
+-   **color =** (to change the color of the points)
+
+-   **size =** \# (to change the size of the points)
+
+-   **alpha =** (to change the transparency of the points)
+
+-   **shape =** \# (from a list of numbers for shapes...some shapes will allow us to use fill =)
+
+-   **stroke =** \# (outline width for certain shapes)
+
+**Note:** When working with multiple variables, we can also change the SHAPE or SIZE or COLOR of the points by the values of another variable. (For example, make the points colored by whether there was a weapon found.) What happens will vary by whether the variable is a factor or numeric, and you will need to explore the options of this.
+
+```{r}
+# see the scatterplot
+ggplot(nyc_stops, aes(x = suspect_age, y = stop_length)) + 
+  geom_point() # make a scatterplot
+
+# something is very wrong - Age is a character variable! 
+```
+
+```{r}
+# fix age and make numeric before continuing
+nyc_stops <- nyc_stops %>%
+  ...
+
+# recreate the plot from above 
+ggplot(nyc_stops, aes(x=suspect_age,y=stop_length)) + 
+  geom_point()
+```
+
+#### Over plotting
+
+Sometimes there are people with the same observations for 𝑋 and 𝑌. This is especially true when working with surveys/Likert type data. On a plot, we don't see how many people are in the same location. There are two solutions to this.
+
+We can add position = "jitter" to the specific plot function or add geom_jitter() to the plot definition. - Jittering adds random noise to the observations to avoid over plotting. (Since this is random, your graph will slightly shift each time.)
+
+```{r}
+# fix the over plotting
+ggplot(nyc_stops, aes(x=suspect_age,y=stop_length)) + 
+  geom_point(...) # spread points randomly
+
+# change the color to blue, fill to lightblue, size to 4, shape to 21, and stroke to 2 
+ggplot(nyc_stops, aes(x=suspect_age,y=stop_length)) + 
+  geom_point(color = ..., # outline points
+             fill = ..., # fill points
+             size = ..., # increase point size
+             shape = ..., # change to a circle shape with outline
+             stroke = ... # increase thickness of point outline
+             )
+```
+
+### Coloring by a categorical variable
+
+Sometimes we want *three or more* variables on our plot. One way to do that is to change the color of another variable by saying color = VARIABLE NAME. (Note: We can also do this with shape and fill.)
+
+```{r}
+ggplot(nyc_stops, aes(x=suspect_age,y=stop_length, color = ...)) + 
+  geom_point()
+# Placing color in the aes() wrapper will create a legend. A VARIABLE needs to be what you color by. 
+```
+
+You can manually specify your colors of levels when coloring by another variable. - The number of colors you specify should match the number of levels within the categorical variable you specified.
+
+CHANGES THE COLOR (OR OUTLINE) ACCORDINGLY: scale_color_manual(values = c("black", "#445566", "maroon"), labels = c("NA", "Female", "Male"), name = "Suspect Sex" )
+
+**Note:** If you fill by another variable, then you change the above to scale_fill_manual().
+
+```{r}
+ggplot(nyc_stops, aes(x=suspect_age,y=stop_length, color=suspect_sex)) + 
+  geom_point(alpha = .3) + 
+  theme_classic() +  
+  scale_color_manual(
+    ...
+  ) 
+```
+
+### Coloring by a numeric variable
+
+We can also color by a numeric variable. This will color (for a scatterplot) the points by their value on the numeric variable.
+
+```{r}
+ggplot(nyc_stops, aes(x=suspect_age,y=stop_length, color = ID)) + 
+  geom_point()
+```
+
+You can manually specify your colors again. - You simply choose a color for the low and high point of the gradient
+
+CHANGES THE COLOR (OR OUTLINE) ACCORDINGLY:\
+scale_color_gradient(low = "COLOR", high = "COLOR", name = "Suspect Sex" )
+
+**Note:** If you fill by another variable, then you change the above to scale_fill_gradient().
+
+```{r}
+ggplot(nyc_stops, aes(x=suspect_age,y=stop_length,color = ID)) + # color by the ID of the stop 
+  geom_point(alpha = .3) + # make the points mildly transparent 
+  theme_classic() + 
+  scale_color_gradient( # specify the gradient 
+    ...
+  ) 
+```
+
+#### Adding a regression line
+
+Regression lines (or lines of best fit) can help us better understand and interpret our relationship. We can do that very easily in ggplot2.
+
+```{r}
+ggplot(nyc_stops, aes(x=suspect_age,y=stop_length)) + 
+  geom_point() + 
+  geom_smooth(method = lm, # fits with a linear model
+              color = "red", # changes the color of the line
+              se = TRUE # adds error band around the line, set to FALSE to remove
+  )
+```
+
+### Box plots (multiple variables)
+
+Boxplots are best used when you're looking at the distribution of multiple groups on a continuous variable.
+
+For example: How does stop_length look based on if there was an arrest and a weapon_found?
+
+```{r}
+ggplot(nyc_stops, aes(x=arrest, y=stop_length, fill = ...)) +
+  geom_boxplot(alpha = .4) + # make the points transparent
+  labs(x = "Arrest", 
+       y = "Stop Duration"
+       ) +
+  scale_fill_manual(
+    values = c("firebrick4","#334455"), 
+    labels = c("No","Yes"),
+    name = "Weapon Found?"
+    ) + 
+  theme_bw() + # make the black and white theme
+  scale_x_discrete(labels = c("N" = "No", "Y" = "Yes")) # change the values on the x-axis
+```
+
+### Density plots (multiple variables)
+
+Density plots also allow for easy visualization of multiple distributions. - Let's take a look at the stop_length for each stop_location. For example: How does stop_length look based on if there was an arrest and a weapon_found?
+
+```{r}
+ggplot(...) +
+  geom_density(linewidth = 1) + 
+  labs(x = "Stop Length (Minutes)",
+       y = "Density"
+       ) + 
+  scale_color_manual(
+    values=c("firebrick4","#334455", "pink", "orange", "forestgreen", "gray"),
+    labels=c("NA","Bronx","Brooklyn","Manhattan", "Queens","Staten Island"),
+    name = "Stop Location") +  
+ theme_classic() # make the classic theme
+```
+
+### Histograms (multiple variables)
+
+We can plot multiple distributions simultaneously with histograms. It is generally ill-advised.
+
+```{r}
+ggplot(...) +
+  geom_histogram(linewidth = 1) + 
+  labs(x = "Stop Length (Minutes)",
+       y = "Density"
+       ) + 
+  scale_color_manual(
+    values=c("firebrick4","#334455", "pink", "orange", "forestgreen", "gray"),
+    labels=c("NA","Bronx","Brooklyn","Manhattan", "Queens","Staten Island"),
+    name = "Stop Location") + 
+  scale_fill_manual(
+    values=c("firebrick4","#334455", "pink", "orange", "forestgreen", "gray"),
+    labels=c("NA","Bronx","Brooklyn","Manhattan", "Queens","Staten Island"),
+    name = "Stop Location") +  
+ theme_classic()
+
+# this looks bad
+```
+
+### Bar graphs (multiple variables)
+
+We can also look at the distribution of multiple categorical variables. - For example, what is the count of arrest based on suspect_race?
+
+```{r}
+ggplot(...) + 
+  geom_bar() +
+  scale_color_manual(
+    values = c("firebrick4", "forestgreen"), 
+    labels=c("No","Yes"),
+    name="Arrest") +
+  scale_fill_manual(
+    values = c("firebrick4", "forestgreen"),
+    labels=c("No","Yes"),
+    name="Arrest") +
+  labs(x="Suspect Race", y="Count") + 
+  theme_classic() +  
+  theme(axis.text.x = element_text(angle=45, hjust=1))
+
+# this is hard to interpret
+```
+
+```{r}
+# we can use position = "dodge" in the plot argument to improve the interpretability
+ggplot(...) + 
+  geom_bar(...) +
+  scale_color_manual(
+    values = c("firebrick4", "forestgreen"),
+    labels=c("No","Yes"),
+    name="Arrest") +
+  scale_fill_manual(
+    values = c("firebrick4", "forestgreen"),
+    labels=c("No","Yes"),
+    name="Arrest") +
+  labs(x="Suspect Race",
+       y="Count"
+       ) + 
+  theme_classic() +  
+  theme(axis.text.x = element_text(angle=45, hjust=1))
+```
+
+### Line plots (geom_line())
+
+Sometimes time is our second variable. In such (and other) cases, a line plot is the best way to visually represent our data. - What if we want to know if the average number of arrests changes by month? - Does stop duration change by day?
+
+In ggplot, we can create such plots with geom_line().
+
+We are going to create two different line plots. One involves tracking the total of arrest per month and the other involves average stop_duration for each stop_date.
+
+```{r}
+# first we need to prep the data for tracking total arrests per month
+
+# create a new grouped data frame
+...
+
+# create the plot
+ggplot(a_by_month, aes(x = month, y = tot_arrest)) + 
+  geom_line(group = 1, # one value per x-axis
+            color = "red" # make it red
+            ) + 
+  jtools::theme_apa()
+```
+
+Now let's look at average stop_lengths per day.
+
+```{r}
+# first we need to convert stop_date to a Date type
+nyc_stops <- nyc_stops %>%
+  dplyr::mutate(stop_date = as.Date(stop_date, "%d/%m/%Y"))
+
+# now we need to prep the data for tracking the average duration per day
+
+# freate a new grouped data frame
+stops <- nyc_stops %>% dplyr::group_by(stop_date) %>% dplyr::summarize(len = mean(stop_length))
+
+# create the plot
+...
+
+```
+
+### Faceted plots
+
+Sometimes we need to plot by many variables or want to split our layered plots into multiple viewing panes for easier interpretation.
+
+For example, there are seven days in the week. This can make the plot squished when we are interested in plotting that dimension. - facet_grid( \~ var) will print a faceted row of plots based on the categories of var. - facet_grid(var \~ .) will print a faceted column of plots based on the categories of var. - facet_grid(var1 \~ var2) will make var1 the rows and var2 the columns in a two-dimensional facet plot. - facet_wrap(\~ variable, nrow = , ncol = ) is a more customizable option. You can also add scales = "free" if the scaling is different for the variables (like it was in the CLT demo).
+
+#### Row of plots
+
+```{r}
+# create a row grid
+ggplot(nyc_stops, aes(x = stop_length)) + 
+  geom_density() + 
+  jtools::theme_apa() + # make apa format
+  facet_grid(...) # create a row of plots
+```
+
+### Column of plots
+
+```{r}
+# create a column grid
+ggplot(nyc_stops, aes(x = stop_length)) + 
+  geom_density() + 
+  jtools::theme_apa() + # make apa format
+  facet_grid(...) # create a column  of plots
+```
+
+### Two-dimensional grid
+
+```{r}
+# create a 2D grid
+ggplot(nyc_stops, aes(x = stop_length)) + 
+  geom_density() + 
+  jtools::theme_apa() + # make apa format
+  facet_grid(...) # plot density plots by days by arrest
+```
+
+### Customizing with facet_wrap()
+
+```{r}
+# create a 3x3 grid in facet wrap
+ggplot(nyc_stops, aes(x = stop_length)) + 
+  geom_density() + # create density plots 
+  jtools::theme_apa() + # make apa format
+  facet_wrap(...) # make a 3x3 grid
+```
+
+## Miscellaneous Plots
+
+There are many other plots we haven't covered. Two interesting ones you should know are below.
+
+### Violin Plots (geom_violin())
+
+A modern way of visualizing a distribution is to create a violin plot (which is, roughly, a mix of a density and boxplot).
+
+```{r}
+ggplot(nyc_stops, aes(x = stop_length, y = arrest)) + 
+  geom_violin() 
+```
+
+### Rug Plots (geom_rug())
+
+For more informative scatterplots, you can add marginal distributions to scatterplots' axes via rug plots.
+
+```{r}
+ggplot(nyc_stops,aes(x = suspect_age, y=stop_length, color=suspect_sex)) + 
+  geom_point() + # make a scatterplot
+  geom_rug(position = "jitter") + # jitter to spread out points
+  jtools::theme_apa() + 
+  scale_color_manual(values=c("pink","purple","maroon"))
+```
+
+Visualizations are one of, if not the most important thing you can do in your data science/research workflow. - The levels of measurement will dictate what you can/can't do. - There are many options available to you. Although there are some wrong answers, there are no right answers. You need to plot it multiple ways and see what helps you tell your story. - Look at online resources/cheat sheets to help you remember the command names, colors, shapes, etc. - I have many bookmarks and a "cheat sheet" plot that I pull from.
+
+# End of Script
+
+That's all for now!
